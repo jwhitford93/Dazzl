@@ -1,3 +1,6 @@
+/* Import Montserrat Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -6,7 +9,7 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
     color: #fff;
     background: #000;
@@ -84,7 +87,7 @@ nav .container {
 
 .logo {
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 800;
     letter-spacing: 2px;
     display: flex;
     align-items: center;
@@ -92,7 +95,7 @@ nav .container {
 }
 
 .logo-image {
-    height: 50px;
+    height: 60px;
     width: auto;
 }
 
@@ -103,15 +106,16 @@ nav .container {
 }
 
 .nav-links a {
-    color: white;
+    color: #000;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 700;
     transition: opacity 0.3s;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    text-shadow: none;
+    font-size: 1.1rem;
 }
 
 .nav-links a:hover {
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 /* Hero Section */
@@ -162,7 +166,7 @@ nav .container {
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
-    font-weight: bold;
+    font-weight: 800;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
@@ -171,6 +175,7 @@ nav .container {
     margin-bottom: 2rem;
     opacity: 0.95;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    font-weight: 500;
 }
 
 .btn-primary {
@@ -180,7 +185,7 @@ nav .container {
     padding: 1rem 2.5rem;
     text-decoration: none;
     border-radius: 50px;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 1.1rem;
     transition: transform 0.3s, box-shadow 0.3s;
     box-shadow: 0 4px 15px rgba(255,255,255,0.3);
@@ -201,6 +206,7 @@ nav .container {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
+    font-weight: 800;
     background: linear-gradient(90deg, 
         #FF6B35 0%,
         #FF5C8D 20%,
@@ -243,6 +249,7 @@ nav .container {
 .service-card h3 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
+    font-weight: 800;
     background: linear-gradient(90deg, #FF6B35, #B744B8, #00B8D4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -251,12 +258,13 @@ nav .container {
 
 .service-subtitle {
     color: #FF5C8D;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 1rem;
 }
 
 .service-card p {
     color: #ccc;
+    font-weight: 400;
 }
 
 .badge {
@@ -268,7 +276,7 @@ nav .container {
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .bespoke-note {
@@ -279,9 +287,20 @@ nav .container {
         #00B8D4 75%,
         #00D9A3 100%);
     color: white;
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 15px;
     text-align: center;
+}
+
+.bespoke-note h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.bespoke-note p {
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
 /* Gallery Section */
@@ -294,6 +313,7 @@ nav .container {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
+    font-weight: 800;
     background: linear-gradient(90deg, 
         #FF6B35 0%,
         #FF5C8D 20%,
@@ -357,6 +377,7 @@ nav .container {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
+    font-weight: 800;
     background: linear-gradient(90deg, 
         #FF6B35 0%,
         #FF5C8D 20%,
@@ -389,10 +410,12 @@ nav .container {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 .feature p {
     color: #ccc;
+    font-weight: 400;
 }
 
 /* Contact Section */
@@ -405,6 +428,7 @@ nav .container {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    font-weight: 800;
     background: linear-gradient(90deg, 
         #FF6B35 0%,
         #FF5C8D 20%,
@@ -422,6 +446,7 @@ nav .container {
     font-size: 1.2rem;
     margin-bottom: 3rem;
     color: #ccc;
+    font-weight: 500;
 }
 
 .contact-options {
@@ -451,12 +476,13 @@ nav .container {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 .contact-method a {
     color: #FF5C8D;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 1.1rem;
 }
 
@@ -473,6 +499,7 @@ nav .container {
     border-radius: 10px;
     color: #ccc;
     border: 1px solid #333;
+    font-weight: 400;
 }
 
 /* Footer */
@@ -492,6 +519,7 @@ footer {
 footer p {
     margin: 0.5rem 0;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    font-weight: 500;
 }
 
 /* Mobile Responsive */
@@ -517,7 +545,6 @@ footer p {
     }
     
     .logo-image {
-        height: 40px;
+        height: 50px;
     }
 }
-CSSEOF
