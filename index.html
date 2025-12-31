@@ -34,30 +34,131 @@
 
     <section id="services" class="services">
         <div class="container">
-            <h2>Our Services</h2>
+            <h2>Our Packages</h2>
             <div class="service-grid">
-                <div class="service-card">
+                <div class="service-card" onclick="openModal('shimmer')">
                     <h3>Shimmer</h3>
-                    <p class="service-subtitle">Face Painting</p>
-                    <p>Beautiful face painting designs to bring any character or theme to life. Perfect for birthday parties and events.</p>
+                    <p class="service-subtitle">Face Painting & Fairy Dust</p>
+                    <p>Beautiful face painting designs with a soft dusting of gold or silver fairy dust. Perfect for birthday parties and events.</p>
+                    <p class="click-hint">Click for details & pricing</p>
                 </div>
-                <div class="service-card featured">
+                <div class="service-card featured" onclick="openModal('sparkle')">
                     <h3>Sparkle</h3>
-                    <p class="service-subtitle">Face Painting + Glitter Art</p>
-                    <p>Our most popular package! Face painting plus stunning glitter art and gems for that extra special touch.</p>
+                    <p class="service-subtitle">Face Painting & Premium Glitter Art</p>
+                    <p>Our most popular package! Face painting, fairy dust, plus stunning cosmetic glitter art in 24 colours for that extra special touch.</p>
                     <span class="badge">Most Popular</span>
+                    <p class="click-hint">Click for details & pricing</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="openModal('dazzle')">
                     <h3>Dazzle</h3>
                     <p class="service-subtitle">Complete Experience</p>
-                    <p>The full experience including face painting, glitter art, gems, and glitter tattoos. Perfect for larger events.</p>
+                    <p>The full wow factor! Face painting, fairy dust, chunky & holographic glitter, face gems, and glitter tattoos. Perfect for larger events.</p>
+                    <p class="click-hint">Click for details & pricing</p>
                 </div>
             </div>
-          <div class="bespoke-note">
-    <h3>Bespoke Packages Available</h3>
-    <p>Planning a wedding or special event? We create custom packages tailored to your needs.</p>
+          <div class="bespoke-note" onclick="openModal('bespoke')">
+            <h3>Bespoke Packages Available</h3>
+            <p>Planning a wedding, christening, baby shower or special event? We create custom packages tailored to your needs.</p>
+            <p class="click-hint">Click for details & pricing</p>
+        </div>
         </div>
     </section>
+
+    <!-- Modal Overlay -->
+    <div id="modalOverlay" class="modal-overlay" onclick="closeModal()"></div>
+
+    <!-- Shimmer Modal -->
+    <div id="shimmer-modal" class="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2>🌟 Shimmer Package</h2>
+        <h3>Magical, simple and sweet</h3>
+        <p>This one's perfect for little ones or when you just want a gentle touch of magic without overwhelming them. I do lovely face paints and finish with a soft dusting of gold or silver fairy dust – that subtle twinkle kids go crazy for.</p>
+        <p>It's quick, gentle and super fuss-free, great for birthdays, playdates or smaller get-togethers.</p>
+        <div class="pricing">
+            <div class="price-option">
+                <h4>1 hour</h4>
+                <p class="price">£50</p>
+                <p>Up to 10 faces</p>
+            </div>
+            <div class="price-option">
+                <h4>2 hours</h4>
+                <p class="price">£90</p>
+                <p>Up to 20 faces</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sparkle Modal -->
+    <div id="sparkle-modal" class="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2>✨ Sparkle Package</h2>
+        <h3>Bright, colourful and extra fun</h3>
+        <p>If you fancy a bit more wow but not full-on glam, this is the one! On top of the detailed face painting and fairy dust, the kids can pick from 24 colours of proper cosmetic glitter for bold cheek art, glitter brows or little accents that look amazing in photos.</p>
+        <p>A lovely step up for bigger parties or any child who's glitter-mad.</p>
+        <div class="pricing">
+            <div class="price-option">
+                <h4>1 hour</h4>
+                <p class="price">£60</p>
+                <p>Up to 10 faces</p>
+            </div>
+            <div class="price-option">
+                <h4>2 hours</h4>
+                <p class="price">£110</p>
+                <p>Up to 20 faces</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dazzle Modal -->
+    <div id="dazzle-modal" class="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2>💎 Dazzle Package</h2>
+        <h3>The full wow factor</h3>
+        <p>My most popular choice – the one that really turns heads! Everything a sparkle-loving kid could wish for:</p>
+        <ul>
+            <li>Gorgeous face painting</li>
+            <li>Twinkly fairy dust</li>
+            <li>Chunky glitter in 24 colours</li>
+            <li>Holographic glitter for proper show-stopping shine</li>
+            <li>Skin-safe face gems</li>
+            <li>Glitter tattoos that last through the whole party (and beyond!)</li>
+        </ul>
+        <p>It feels like bringing a mini festival glitter bar to your event. Absolute favourite for themed birthdays, discos or bigger celebrations.</p>
+        <div class="pricing">
+            <div class="price-option">
+                <h4>1 hour</h4>
+                <p class="price">£70</p>
+                <p>Up to 10 faces</p>
+            </div>
+            <div class="price-option">
+                <h4>2 hours</h4>
+                <p class="price">£130</p>
+                <p>Up to 20 faces</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bespoke Modal -->
+    <div id="bespoke-modal" class="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2>✨ Bespoke Packages</h2>
+        <h3>Weddings, Christenings, Baby Showers & Special Events</h3>
+        <p>For adults and families who want something a bit different and memorable, I can set up a bespoke glitter bar with subtle (or bold!) face art.</p>
+        <p>Every event is unique, so I'll chat with you about your theme, colours and vibe – whether that's elegant bridal shimmer, festival fun or a magical evening glow.</p>
+        <div class="pricing">
+            <div class="price-option special">
+                <h4>Starting at</h4>
+                <p class="price">£250</p>
+                <p>2 hours minimum</p>
+            </div>
+            <div class="price-option special">
+                <h4>Additional hours</h4>
+                <p class="price">£100</p>
+                <p>Per hour</p>
+            </div>
+        </div>
+        <p style="margin-top: 2rem; text-align: center;">I'd love to help make your day extra special for everyone.</p>
+    </div>
 
     <section id="gallery" class="gallery">
         <div class="container">
@@ -91,7 +192,7 @@
             <div class="features">
                 <div class="feature">
                     <h3>Professional Quality</h3>
-                    <p>Using only cosmetic-grade products that are safe for all skin types</p>
+                    <p>Using only top-quality cosmetic-grade products that are safe for all skin types</p>
                 </div>
                 <div class="feature">
                     <h3>Fully Insured</h3>
@@ -135,6 +236,46 @@
             <p>Fully insured. Cosmetic-grade products. Professional service.</p>
         </div>
     </footer>
+
+    <script>
+        function openModal(packageName) {
+            const modal = document.getElementById(packageName + '-modal');
+            const overlay = document.getElementById('modalOverlay');
+            modal.style.display = 'block';
+            overlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Animate in
+            setTimeout(() => {
+                modal.classList.add('active');
+                overlay.classList.add('active');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modals = document.querySelectorAll('.modal');
+            const overlay = document.getElementById('modalOverlay');
+            
+            modals.forEach(modal => {
+                modal.classList.remove('active');
+            });
+            overlay.classList.remove('active');
+            
+            setTimeout(() => {
+                modals.forEach(modal => {
+                    modal.style.display = 'none';
+                });
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
- 

@@ -26,6 +26,7 @@ section {
     scroll-snap-align: start;
     scroll-snap-stop: always;
 }
+
 /* Sparkle Effects */
 body::before {
     content: '✨';
@@ -281,6 +282,9 @@ nav .container {
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
     border: 1px solid #333;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-card:hover {
@@ -289,10 +293,46 @@ nav .container {
 }
 
 .service-card.featured {
-    border: 3px solid;
-    border-image: linear-gradient(135deg, #FF6B35, #B744B8, #00B8D4) 1;
+    background: linear-gradient(135deg, #FF6B35, #B744B8, #00B8D4);
+    border: none;
+    padding: 3px;
 }
 
+.service-card.featured::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    z-index: 0;
+    padding: 2.5rem;
+}
+
+.service-card.featured > * {
+    position: relative;
+    z-index: 1;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+}
+
+.service-card.featured > *:first-child {
+    margin-top: 2.5rem;
+}
+
+.service-card.featured > *:last-child {
+    margin-bottom: 2.5rem;
+}
+
+.service-card.featured .badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    margin: 0 !important;
+}
 .service-card h3 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
@@ -309,9 +349,10 @@ nav .container {
     margin-bottom: 1rem;
 }
 
-.service-card p {
+.service-card p:not(.click-hint) {
     color: #ccc;
     font-weight: 400;
+    flex-grow: 1;
 }
 
 .badge {
@@ -337,6 +378,7 @@ nav .container {
     padding: 2.5rem;
     border-radius: 15px;
     text-align: center;
+    cursor: pointer;
 }
 
 .bespoke-note h3 {
@@ -348,6 +390,13 @@ nav .container {
 .bespoke-note p {
     font-size: 1.1rem;
     font-weight: 500;
+}
+
+.click-hint {
+    color: #00B8D4 !important;
+    font-size: 0.9rem !important;
+    margin-top: 1rem !important;
+    font-weight: 600 !important;
 }
 
 /* Gallery Section */
@@ -530,12 +579,14 @@ nav .container {
     background: #1a1a1a;
     border-radius: 15px;
     border: 2px solid #333;
-    transition: border 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
 }
 
 .contact-method:hover {
-    border-image: linear-gradient(135deg, #FF6B35, #B744B8, #00B8D4) 1;
-    box-shadow: 0 4px 20px rgba(255,107,53,0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(255,107,53,0.4);
+    border: 2px solid #333;
 }
 
 .contact-method h3 {
@@ -590,6 +641,180 @@ footer p {
     font-weight: 500;
 }
 
+/* Modal Styles */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 999;
+    transition: background 0.3s ease;
+}
+
+.modal-overlay.active {
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    background: linear-gradient(135deg, #FF6B35, #B744B8, #00B8D4);
+    padding: 2px;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 75vh;
+    z-index: 1000;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.modal::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: #1a1a1a;
+    border-radius: 18px;
+    z-index: 0;
+    overflow-y: auto;
+    max-height: calc(75vh - 4px);
+}
+
+.modal > * {
+    position: relative;
+    z-index: 1;
+}
+
+.modal > h2:first-of-type {
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.modal > h3,
+.modal > p,
+.modal > ul {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.modal > p:last-of-type {
+    margin-bottom: 2rem;
+}
+
+.modal .pricing {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.modal .close-btn {
+    margin: 0 !important;
+}
+
+.modal h2 {
+    background: linear-gradient(90deg, #FF6B35, #FF5C8D, #B744B8, #00B8D4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal h3 {
+    color: #FF5C8D;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.modal p {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0.6rem;
+}
+
+.modal ul {
+    color: #ccc;
+    font-size: 0.95rem;
+    margin: 0.8rem 0 0.8rem 2rem;
+    line-height: 1.5;
+}
+
+.modal li {
+    margin-bottom: 0.5rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-size: 3rem;
+    color: #FF5C8D;
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+    z-index: 10;
+}
+
+.close-btn:hover {
+    color: #FF6B35;
+}
+
+.pricing {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.price-option {
+    background: #0a0a0a;
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid #333;
+    transition: border 0.3s;
+}
+
+.price-option:hover {
+    border-color: #FF5C8D;
+}
+
+.price-option h4 {
+    color: #00B8D4;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.price-option .price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #FF6B35, #B744B8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0.5rem 0;
+}
+
+.price-option p:last-child {
+    color: #999;
+    font-size: 0.9rem;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .nav-links {
@@ -614,5 +839,25 @@ footer p {
     
     .logo-image {
         height: 60px;
+    }
+    
+    .modal {
+        padding: 2rem;
+        width: 95%;
+        max-height: 90vh;
+    }
+    
+    .modal h2 {
+        font-size: 1.8rem;
+    }
+    
+    .close-btn {
+        font-size: 2.5rem;
+        top: 1rem;
+        right: 1rem;
+    }
+    
+    .pricing {
+        grid-template-columns: 1fr;
     }
 }
