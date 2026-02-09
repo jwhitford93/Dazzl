@@ -849,13 +849,13 @@ footer p {
         width: 95%;
         max-height: 90vh;
         padding: 2px;
-        overflow: hidden;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
     }
     
     .modal::after {
-        overflow-y: auto;
-        overflow-x: hidden;
-        max-height: calc(90vh - 4px);
+        pointer-events: none;
     }
     
     .modal > h2:first-of-type {
