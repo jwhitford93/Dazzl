@@ -817,6 +817,10 @@ footer p {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    html {
+        scroll-snap-type: none;
+    }
+    
     .nav-links {
         gap: 1rem;
         font-size: 0.9rem;
@@ -842,22 +846,55 @@ footer p {
     }
     
     .modal {
-        padding: 2rem;
         width: 95%;
         max-height: 90vh;
+        padding: 2px;
+    }
+    
+    .modal > h2:first-of-type {
+        margin: 1.5rem 1rem 0.5rem 1rem;
+    }
+    
+    .modal > h3,
+    .modal > p,
+    .modal > ul {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    
+    .modal > p:last-of-type {
+        margin-bottom: 1.5rem;
+    }
+    
+    .modal .pricing {
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
     
     .modal h2 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+    }
+    
+    .modal h3 {
+        font-size: 1.1rem;
+    }
+    
+    .modal p {
+        font-size: 0.9rem;
     }
     
     .close-btn {
-        font-size: 2.5rem;
+        font-size: 2rem;
         top: 1rem;
         right: 1rem;
     }
     
     .pricing {
         grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .price-option {
+        padding: 1.2rem;
     }
 }
