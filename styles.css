@@ -849,44 +849,49 @@ footer p {
     .modal {
         width: 95%;
         max-height: 90vh;
+        background: linear-gradient(135deg, #FF6B35, #B744B8, #00B8D4);
         padding: 2px;
-        overflow-y: auto;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
+        border-radius: 20px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
     }
     
     .modal::after {
-        content: '';
-        position: fixed;
-        top: 2px;
-        left: 2px;
-        right: 2px;
-        bottom: 2px;
-        background: #1a1a1a;
-        border-radius: 18px;
-        z-index: 0;
-        pointer-events: none;
-        max-height: calc(90vh - 4px);
+        display: none;
     }
     
     .modal > * {
         position: relative;
         z-index: 1;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        background: #1a1a1a;
+        margin: 0;
+        padding: 0 1rem;
     }
     
     .modal > h2:first-of-type {
+        border-radius: 18px 18px 0 0;
         padding-top: 1.5rem;
-        margin: 0 0 0.3rem 0;
+        padding-bottom: 0.3rem;
+    }
+    
+    .modal > *:last-child {
+        border-radius: 0 0 18px 18px;
+        padding-bottom: 1.5rem;
     }
     
     .modal .pricing {
-        padding-bottom: 1.5rem;
-        margin: 1rem 0;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        flex: 1;
     }
     
-    .modal .close-btn {
+    .close-btn {
+        font-size: 2rem;
+        top: 1rem;
+        right: 1rem;
+        z-index: 10;
+        background: transparent !important;
         padding: 0 !important;
     }
     
@@ -908,13 +913,6 @@ footer p {
     .modal ul {
         font-size: 0.85rem;
         margin: 0.5rem 0 0.5rem 1.5rem;
-    }
-    
-    .close-btn {
-        font-size: 2rem;
-        top: 1rem;
-        right: 1rem;
-        z-index: 10;
     }
     
     .pricing {
