@@ -846,33 +846,59 @@ footer p {
     }
     
     .modal {
-    width: 95%;
-    max-height: 90vh;
-    padding: 2px;
-    overflow-y: auto;
-}
+        width: 95%;
+        max-height: 90vh;
+        padding: 2px;
+        display: flex;
+        flex-direction: column;
+    }
+    
     .modal::after {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+        background: #1a1a1a;
+        border-radius: 18px;
+        z-index: 0;
+        pointer-events: none;
+    }
+    
+    .modal > * {
+        position: relative;
+        z-index: 1;
         overflow-y: auto;
         overflow-x: hidden;
         max-height: calc(90vh - 4px);
+        padding: 1.5rem 1rem;
     }
     
     .modal > h2:first-of-type {
-        margin: 1.5rem 1rem 0.3rem 1rem;
+        margin: 0 0 0.3rem 0;
+        padding-top: 1.5rem;
     }
     
     .modal > h3,
     .modal > p,
     .modal > ul {
-        margin-left: 1rem;
-        margin-right: 1rem;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
     }
     
     .modal .pricing {
-        margin-left: 1rem;
-        margin-right: 1rem;
-        margin-bottom: 2rem;
+        margin: 0 0 1rem 0;
+        padding: 0;
         gap: 0.8rem;
+    }
+    
+    .modal .close-btn {
+        padding: 0 !important;
+        overflow: visible !important;
+        max-height: none !important;
     }
     
     .modal h2 {
