@@ -846,12 +846,11 @@ footer p {
     }
     
     .modal {
-        width: 95%;
-        max-height: 90vh;
-        padding: 2px;
-        overflow: hidden;
-    }
-    
+    width: 95%;
+    max-height: 90vh;
+    padding: 2px;
+    overflow-y: auto;
+}
     .modal::after {
         overflow-y: auto;
         overflow-x: hidden;
