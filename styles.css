@@ -847,10 +847,10 @@ footer p {
     
     .modal {
         width: 95%;
+        height: 90vh;
         max-height: 90vh;
         padding: 2px;
-        display: flex;
-        flex-direction: column;
+        overflow: hidden;
     }
     
     .modal::after {
@@ -863,21 +863,21 @@ footer p {
         background: #1a1a1a;
         border-radius: 18px;
         z-index: 0;
-        pointer-events: none;
-    }
-    
-    .modal > * {
-        position: relative;
-        z-index: 1;
         overflow-y: auto;
         overflow-x: hidden;
-        max-height: calc(90vh - 4px);
         padding: 1.5rem 1rem;
+    }
+    
+    .modal-overlay.active {
+        overflow: hidden;
+    }
+    
+    body.modal-open {
+        overflow: hidden;
     }
     
     .modal > h2:first-of-type {
         margin: 0 0 0.3rem 0;
-        padding-top: 1.5rem;
     }
     
     .modal > h3,
@@ -885,20 +885,11 @@ footer p {
     .modal > ul {
         margin-left: 0;
         margin-right: 0;
-        padding-left: 0;
-        padding-right: 0;
     }
     
     .modal .pricing {
         margin: 0 0 1rem 0;
-        padding: 0;
         gap: 0.8rem;
-    }
-    
-    .modal .close-btn {
-        padding: 0 !important;
-        overflow: visible !important;
-        max-height: none !important;
     }
     
     .modal h2 {
