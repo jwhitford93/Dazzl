@@ -816,7 +816,6 @@ footer p {
 }
 
 /* Mobile Responsive */
-/* Mobile Responsive */
 @media (max-width: 768px) {
     html {
         scroll-snap-type: none;
@@ -849,50 +848,32 @@ footer p {
     .modal {
         width: 95%;
         max-height: 90vh;
-        background: linear-gradient(135deg, #FF6B35, #B744B8, #00B8D4);
         padding: 2px;
-        border-radius: 20px;
         overflow: hidden;
-        display: flex;
-        flex-direction: column;
     }
     
     .modal::after {
-        display: none;
-    }
-    
-    .modal > * {
-        position: relative;
-        z-index: 1;
-        background: #1a1a1a;
-        margin: 0;
-        padding: 0 1rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: calc(90vh - 4px);
     }
     
     .modal > h2:first-of-type {
-        border-radius: 18px 18px 0 0;
-        padding-top: 1.5rem;
-        padding-bottom: 0.3rem;
+        margin: 1.5rem 1rem 0.3rem 1rem;
     }
     
-    .modal > *:last-child {
-        border-radius: 0 0 18px 18px;
-        padding-bottom: 1.5rem;
+    .modal > h3,
+    .modal > p,
+    .modal > ul {
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
     
     .modal .pricing {
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        flex: 1;
-    }
-    
-    .close-btn {
-        font-size: 2rem;
-        top: 1rem;
-        right: 1rem;
-        z-index: 10;
-        background: transparent !important;
-        padding: 0 !important;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-bottom: 2rem;
+        gap: 0.8rem;
     }
     
     .modal h2 {
@@ -913,6 +894,12 @@ footer p {
     .modal ul {
         font-size: 0.85rem;
         margin: 0.5rem 0 0.5rem 1.5rem;
+    }
+    
+    .close-btn {
+        font-size: 2rem;
+        top: 1rem;
+        right: 1rem;
     }
     
     .pricing {
