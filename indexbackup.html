@@ -12,17 +12,7 @@
     <header>
         <nav>
             <div class="container">
-                <h1 class="logo">
-                    <img src="images/Logo-Dazzl-Rainbow.png" alt="Dazzl" class="logo-image">
-                </h1>
-
-                <!-- Mobile hamburger -->
-                <button class="nav-toggle" aria-label="Toggle navigation">
-                    <span class="nav-toggle-bar"></span>
-                    <span class="nav-toggle-bar"></span>
-                    <span class="nav-toggle-bar"></span>
-                </button>
-
+                <h1 class="logo"><img src="images/Logo-Dazzl-Rainbow.png" alt="Dazzl" class="logo-image"></h1>
                 <ul class="nav-links">
                     <li><a href="#services">Services</a></li>
                     <li><a href="#gallery">Gallery</a></li>
@@ -31,7 +21,6 @@
             </div>
         </nav>
     </header>
-
 
     <section class="hero">
         <div class="container">
@@ -42,7 +31,6 @@
             </div>
         </div>
     </section>
-
 
     <section id="services" class="services">
         <div class="container">
@@ -68,123 +56,109 @@
                     <p class="click-hint">Click for details & pricing</p>
                 </div>
             </div>
-            <div class="bespoke-note" onclick="openModal('bespoke')">
-                <h3>Bespoke Packages Available</h3>
-                <p>Planning a wedding, christening, baby shower or special event? We create custom packages tailored to your needs.</p>
-                <p class="click-hint">Click for details & pricing</p>
-            </div>
+          <div class="bespoke-note" onclick="openModal('bespoke')">
+            <h3>Bespoke Packages Available</h3>
+            <p>Planning a wedding, christening, baby shower or special event? We create custom packages tailored to your needs.</p>
+            <p class="click-hint">Click for details & pricing</p>
+        </div>
         </div>
     </section>
-
 
     <!-- Modal Overlay -->
     <div id="modalOverlay" class="modal-overlay" onclick="closeModal()"></div>
 
-
     <!-- Shimmer Modal -->
     <div id="shimmer-modal" class="modal">
         <span class="close-btn" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
-            <h2>🌟 Shimmer Package</h2>
-            <h3>Magical, simple and sweet</h3>
-            <p>This one's perfect for little ones or when you just want a gentle touch of magic without overwhelming them. I do lovely face paints and finish with a soft dusting of gold or silver fairy dust – that subtle twinkle kids go crazy for.</p>
-            <p>It's quick, gentle and super fuss-free, great for birthdays, playdates or smaller get-togethers.</p>
-            <div class="pricing">
-                <div class="price-option">
-                    <h4>1 hour</h4>
-                    <p class="price">£50</p>
-                    <p>Up to 10 faces</p>
-                </div>
-                <div class="price-option">
-                    <h4>2 hours</h4>
-                    <p class="price">£90</p>
-                    <p>Up to 20 faces</p>
-                </div>
+        <h2>🌟 Shimmer Package</h2>
+        <h3>Magical, simple and sweet</h3>
+        <p>This one's perfect for little ones or when you just want a gentle touch of magic without overwhelming them. I do lovely face paints and finish with a soft dusting of gold or silver fairy dust – that subtle twinkle kids go crazy for.</p>
+        <p>It's quick, gentle and super fuss-free, great for birthdays, playdates or smaller get-togethers.</p>
+        <div class="pricing">
+            <div class="price-option">
+                <h4>1 hour</h4>
+                <p class="price">£50</p>
+                <p>Up to 10 faces</p>
+            </div>
+            <div class="price-option">
+                <h4>2 hours</h4>
+                <p class="price">£90</p>
+                <p>Up to 20 faces</p>
             </div>
         </div>
     </div>
-
 
     <!-- Sparkle Modal -->
     <div id="sparkle-modal" class="modal">
         <span class="close-btn" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
-            <h2>✨ Sparkle Package</h2>
-            <h3>Bright, colourful and extra fun</h3>
-            <p>If you fancy a bit more wow but not full-on glam, this is the one! On top of the detailed face painting and fairy dust, you can pick from 24 colours of high quality cosmetic glitter for bold face art, glitter brows or little accents that look amazing in photos.</p>
-            <p>A lovely step up for bigger parties or anyone who's glitter-mad.</p>
-            <div class="pricing">
-                <div class="price-option">
-                    <h4>1 hour</h4>
-                    <p class="price">£60</p>
-                    <p>Up to 10 faces</p>
-                </div>
-                <div class="price-option">
-                    <h4>2 hours</h4>
-                    <p class="price">£110</p>
-                    <p>Up to 20 faces</p>
-                </div>
+        <h2>✨ Sparkle Package</h2>
+        <h3>Bright, colourful and extra fun</h3>
+        <p>If you fancy a bit more wow but not full-on glam, this is the one! On top of the detailed face painting and fairy dust, you can pick from 24 colours of high quality cosmetic glitter for bold face art, glitter brows or little accents that look amazing in photos.</p>
+        <p>A lovely step up for bigger parties or anyone who's glitter-mad.</p>
+        <div class="pricing">
+            <div class="price-option">
+                <h4>1 hour</h4>
+                <p class="price">£60</p>
+                <p>Up to 10 faces</p>
+            </div>
+            <div class="price-option">
+                <h4>2 hours</h4>
+                <p class="price">£110</p>
+                <p>Up to 20 faces</p>
             </div>
         </div>
     </div>
-
 
     <!-- Dazzle Modal -->
     <div id="dazzle-modal" class="modal">
         <span class="close-btn" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
-            <h2>💎 Dazzle Package</h2>
-            <h3>The full wow factor</h3>
-            <p>The real head-turner! Everything a sparkle-lover could wish for:</p>
-            <ul>
-                <li>Gorgeous face painting</li>
-                <li>Twinkly fairy dust</li>
-                <li>Chunky glitter in 24 colours</li>
-                <li>Holographic glitter for proper show-stopping shine</li>
-                <li>Skin-safe, cosmetic-grade face gems, with optional glow-in-the-dark gems</li>
-                <li>Glitter tattoos that last through the whole party (and beyond!)</li>
-            </ul>
-            <p>It feels like bringing a festival glitter bar to your event. Absolute favourite for themed birthdays, discos or bigger celebrations.</p>
-            <div class="pricing">
-                <div class="price-option">
-                    <h4>1 hour</h4>
-                    <p class="price">£70</p>
-                    <p>Up to 10 faces</p>
-                </div>
-                <div class="price-option">
-                    <h4>2 hours</h4>
-                    <p class="price">£130</p>
-                    <p>Up to 20 faces</p>
-                </div>
+        <h2>💎 Dazzle Package</h2>
+        <h3>The full wow factor</h3>
+        <p>The real head-turner! Everything a sparkle-lover could wish for:</p>
+        <ul>
+            <li>Gorgeous face painting</li>
+            <li>Twinkly fairy dust</li>
+            <li>Chunky glitter in 24 colours</li>
+            <li>Holographic glitter for proper show-stopping shine</li>
+            <li>Skin-safe, cosmetic-grade face gems, with optional glow-in-the-dark gems</li>
+            <li>Glitter tattoos that last through the whole party (and beyond!)</li>
+        </ul>
+        <p>It feels like bringing a festival glitter bar to your event. Absolute favourite for themed birthdays, discos or bigger celebrations.</p>
+        <div class="pricing">
+            <div class="price-option">
+                <h4>1 hour</h4>
+                <p class="price">£70</p>
+                <p>Up to 10 faces</p>
+            </div>
+            <div class="price-option">
+                <h4>2 hours</h4>
+                <p class="price">£130</p>
+                <p>Up to 20 faces</p>
             </div>
         </div>
     </div>
-
 
     <!-- Bespoke Modal -->
     <div id="bespoke-modal" class="modal">
         <span class="close-btn" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
-            <h2>✨ Bespoke Packages</h2>
-            <h3>Weddings, Christenings, Baby Showers & Special Events</h3>
-            <p>For adults and families who want something a bit different and memorable, I can set up a bespoke glitter bar complete with subtle (or bold!) face & body art.</p>
-            <p>Every event is unique, so I'll chat with you about your theme, colours and vibe – whether that's elegant bridal shimmer, festival fun or a magical evening glow.</p>
-            <div class="pricing">
-                <div class="price-option special">
-                    <h4>Starting at</h4>
-                    <p class="price">£250</p>
-                    <p>2 hours minimum</p>
-                </div>
-                <div class="price-option special">
-                    <h4>Additional hours</h4>
-                    <p class="price">£100</p>
-                    <p>Per hour</p>
-                </div>
+        <h2>✨ Bespoke Packages</h2>
+        <h3>Weddings, Christenings, Baby Showers & Special Events</h3>
+        <p>For adults and families who want something a bit different and memorable, I can set up a bespoke glitter bar complete with subtle (or bold!) face & body art.</p>
+        <p>Every event is unique, so I'll chat with you about your theme, colours and vibe – whether that's elegant bridal shimmer, festival fun or a magical evening glow.</p>
+        <div class="pricing">
+            <div class="price-option special">
+                <h4>Starting at</h4>
+                <p class="price">£250</p>
+                <p>2 hours minimum</p>
             </div>
-            <p style="margin-top: 2rem; text-align: center;">I'd love to help make your day extra special for everyone.</p>
+            <div class="price-option special">
+                <h4>Additional hours</h4>
+                <p class="price">£100</p>
+                <p>Per hour</p>
+            </div>
         </div>
+        <p style="margin-top: 2rem; text-align: center;">I'd love to help make your day extra special for everyone.</p>
     </div>
-
 
     <section id="gallery" class="gallery">
         <div class="container">
@@ -212,7 +186,6 @@
         </div>
     </section>
 
-
     <section id="about" class="about">
         <div class="container">
             <h2>Why Choose Dazzl?</h2>
@@ -233,31 +206,29 @@
         </div>
     </section>
 
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Book Your Event</h2>
-            <p class="contact-intro">Ready to add some sparkle to your party? Get in touch to discuss your requirements and receive a personalised quote.</p>
-            <div class="contact-options">
-                <div class="contact-method">
-                    <h3><img src="images/Icon-Dazzl-Phone.png" alt="Phone" style="width:60px; height:60px;"></h3>
-                    <p><a href="tel:+447308304011">07308304011</a></p>
-                </div>
-                <div class="contact-method">
-                    <h3><img src="images/Icon-Dazzl-Mail.png" alt="Mail" style="width:60px; height:60px;"></h3>
-                    <p><a href="mailto:diana@dazzl.uk">diana@dazzl.uk</a></p>
-                </div>
-                <div class="contact-method">
-                    <h3><img src="images/Icon-Dazzl-Insta.png" alt="Instagram" style="width:60px; height:60px;"></h3>
-                    <p><a href="https://instagram.com/dazzl_faces" target="_blank">@dazzl_faces</a></p>
-                </div>
+<section id="contact" class="contact">
+    <div class="container">
+        <h2>Book Your Event</h2>
+        <p class="contact-intro">Ready to add some sparkle to your party? Get in touch to discuss your requirements and receive a personalised quote.</p>
+        <div class="contact-options">
+            <div class="contact-method">
+                <h3><img src="images/Icon-Dazzl-Phone.png" alt="Phone" style="width:60px; height:60px;"></h3>
+                <p><a href="tel:+447308304011">07308304011</a></p>
             </div>
-            <div class="contact-note">
-                <p>Please include your event date, location, expected number of people, and preferred service tier. We'll get back to you within 24 hours.</p>
+            <div class="contact-method">
+                <h3><img src="images/Icon-Dazzl-Mail.png" alt="Mail" style="width:60px; height:60px;"></h3>
+                <p><a href="mailto:diana@dazzl.uk">diana@dazzl.uk</a></p>
+            </div>
+            <div class="contact-method">
+                <h3><img src="images/Icon-Dazzl-Insta.png" alt="Instagram" style="width:60px; height:60px;"></h3>
+                <p><a href="https://instagram.com/dazzl_faces" target="_blank">@dazzl_faces</a></p>
             </div>
         </div>
-    </section>
-
+        <div class="contact-note">
+            <p>Please include your event date, location, expected number of people, and preferred service tier. We'll get back to you within 24 hours.</p>
+        </div>
+    </div>
+</section>
 
     <footer>
         <div class="container">
@@ -266,7 +237,6 @@
         </div>
     </footer>
 
-
     <script>
         function openModal(packageName) {
             const modal = document.getElementById(packageName + '-modal');
@@ -274,7 +244,7 @@
             modal.style.display = 'block';
             overlay.style.display = 'block';
             document.body.style.overflow = 'hidden';
-
+            
             // Animate in
             setTimeout(() => {
                 modal.classList.add('active');
@@ -285,12 +255,12 @@
         function closeModal() {
             const modals = document.querySelectorAll('.modal');
             const overlay = document.getElementById('modalOverlay');
-
+            
             modals.forEach(modal => {
                 modal.classList.remove('active');
             });
             overlay.classList.remove('active');
-
+            
             setTimeout(() => {
                 modals.forEach(modal => {
                     modal.style.display = 'none';
@@ -306,25 +276,6 @@
                 closeModal();
             }
         });
-
-        // Mobile nav toggle
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks  = document.querySelector('.nav-links');
-
-        if (navToggle && navLinks) {
-            navToggle.addEventListener('click', () => {
-                navToggle.classList.toggle('open');
-                navLinks.classList.toggle('open');
-            });
-
-            // Close menu when a link is tapped
-            navLinks.addEventListener('click', (e) => {
-                if (e.target.tagName === 'A') {
-                    navToggle.classList.remove('open');
-                    navLinks.classList.remove('open');
-                }
-            });
-        }
     </script>
 </body>
 </html>
