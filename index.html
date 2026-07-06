@@ -35,6 +35,12 @@
     </header>
 
 
+    <div id="announcement-banner" class="announcement-banner">
+        <p>✨ August almost fully booked — only a few dates left!</p>
+        <button type="button" class="announcement-close" onclick="dismissAnnouncement()" aria-label="Dismiss">&times;</button>
+    </div>
+
+
     <div class="section-hero">
     <section class="hero">
         <div class="container">
@@ -538,6 +544,21 @@
         }, { threshold: 0.5 });
 
         snapSections.forEach(section => scrollResetObserver.observe(section));
+
+        // ---- Announcement banner ----
+        const announcementKey = 'dazzl-announcement-dismissed-august';
+        const announcementBanner = document.getElementById('announcement-banner');
+
+        if (announcementBanner) {
+            if (localStorage.getItem(announcementKey) === 'true') {
+                announcementBanner.style.display = 'none';
+            }
+        }
+
+        function dismissAnnouncement() {
+            announcementBanner.style.display = 'none';
+            localStorage.setItem(announcementKey, 'true');
+        }
 
         // Mobile nav toggle
         const navToggle = document.querySelector('.nav-toggle');
