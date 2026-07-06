@@ -13,7 +13,9 @@
         <nav>
             <div class="container">
                 <h1 class="logo">
-                    <img src="images/Logo-Dazzl-Rainbow.png" alt="Dazzl" class="logo-image">
+                    <a href="#">
+                        <img src="images/Logo-Dazzl-Rainbow.png" alt="Dazzl" class="logo-image">
+                    </a>
                 </h1>
 
                 <!-- Mobile hamburger -->
@@ -24,54 +26,133 @@
                 </button>
 
                 <ul class="nav-links">
-                    <li><a href="#services">Services</a></li>
+                    <li><a href="#services">Book Now</a></li>
                     <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#contact">Book Now</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
 
+    <div class="section-hero">
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>Make Your Event Dazzle!</h1>
                 <p>Professional face painting, glitter art, and sparkle tattoos for parties and special events</p>
-                <a href="#contact" class="btn-primary">Book Your Party</a>
+                <a href="#services" class="btn-primary">Book Your Event</a>
             </div>
         </div>
     </section>
 
 
-    <section id="services" class="services">
+    <section class="reviews-strip">
         <div class="container">
-            <h2>Packages</h2>
-            <div class="service-grid">
-                <div class="service-card" onclick="openModal('shimmer')">
-                    <h3>Shimmer</h3>
-                    <p class="service-subtitle">Face Painting & Fairy Dust</p>
-                    <p>Beautiful face painting designs with a soft dusting of gold or silver fairy dust. Perfect for birthday parties and events.</p>
-                    <p class="click-hint">Click for details & pricing</p>
+            <div class="reviews-grid">
+                <div class="review-ticker-card" id="ticker-a">
+                    <p class="review-quote" id="ticker-a-quote"></p>
+                    <p class="review-name" id="ticker-a-name"></p>
                 </div>
-                <div class="service-card featured" onclick="openModal('sparkle')">
-                    <h3>Sparkle</h3>
-                    <p class="service-subtitle">Face Painting & Premium Glitter Art</p>
-                    <p>Most popular package! Face painting, fairy dust, plus stunning cosmetic glitter art in 24 colours for that extra special touch.</p>
-                    <span class="badge">Most Popular</span>
-                    <p class="click-hint">Click for details & pricing</p>
+                <div class="review-ticker-card" id="ticker-b">
+                    <p class="review-quote" id="ticker-b-quote"></p>
+                    <p class="review-name" id="ticker-b-name"></p>
                 </div>
-                <div class="service-card" onclick="openModal('dazzle')">
-                    <h3>Dazzle</h3>
-                    <p class="service-subtitle">Complete Experience</p>
-                    <p>The full wow factor! Face painting, fairy dust, chunky & holographic glitter, face gems, and glitter tattoos. Perfect for larger events.</p>
-                    <p class="click-hint">Click for details & pricing</p>
+                <div class="reviews-card">
+                    <div class="reviews-stars">★★★★★</div>
+                    <p class="reviews-summary">5.0 from 12 Google reviews</p>
+                    <div class="reviews-links">
+                        <a href="https://www.google.com/search?q=DazzL+-+Face+Painter+and+Glitter+Artist+reviews" target="_blank" rel="noopener" class="reviews-btn">Read our reviews</a>
+                        <a href="https://www.google.com/search?q=DazzL+-+Face+Painter+and+Glitter+Artist+reviews" target="_blank" rel="noopener" class="reviews-btn reviews-btn-outline">Leave a review</a>
+                    </div>
                 </div>
             </div>
-            <div class="bespoke-note" onclick="openModal('bespoke')">
-                <h3>Bespoke Packages Available</h3>
-                <p>Planning a wedding, christening, baby shower or special event? We create custom packages tailored to your needs.</p>
-                <p class="click-hint">Click for details & pricing</p>
+        </div>
+    </section>
+    </div>
+
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Build Your Event</h2>
+            <div class="builder-layout">
+            <div class="builder-card">
+
+                <div id="builder-step-1" class="builder-step-1">
+                    <p class="builder-step-1-intro">What are you looking for?</p>
+                    <div class="builder-service-choice">
+                        <button type="button" class="builder-service-card" onclick="selectService('facepaint')">
+                            <span class="builder-service-title">Face Painting</span>
+                            <span class="builder-service-desc">High-quality, detailed face painting with glitter art and intricate designs. Around 15 faces per hour.</span>
+                        </button>
+                        <button type="button" class="builder-service-card" onclick="selectService('glitter')">
+                            <span class="builder-service-title">Glitter Bar</span>
+                            <span class="builder-service-desc">Glamorous, fast-paced glitter artwork, suited to events with larger numbers of guests. A wide variety of hair, face and body glitters.</span>
+                        </button>
+                    </div>
+                    <p class="builder-step-1-disclaimer">For insurance purposes, I'm unable to paint the faces of children under 3.</p>
+                </div>
+
+                <div id="builder-step-2" class="builder-step-2 builder-step-hidden">
+
+                <button type="button" class="builder-change-service" onclick="backToStep1()">&larr; Change service</button>
+
+                <div class="builder-field">
+                    <div class="builder-field-label">
+                        <span>Booking time</span>
+                        <span class="value"><span id="start-out">12:00</span> – <span id="end-out">14:00</span></span>
+                    </div>
+                    <div class="dual-wrap">
+                        <div class="dual-track"></div>
+                        <div class="dual-range" id="dual-fill"></div>
+                        <input type="range" id="builder-start" min="8" max="24" step="0.5" value="12">
+                        <input type="range" id="builder-end" min="8" max="24" step="0.5" value="14">
+                    </div>
+                    <p class="builder-hint"><span id="duration-out">2</span> hours booked, covers up to <span id="faces-out">30</span> faces. £70/hr for the first 2 hours, £65/hr after. £10/hr surcharge between 6pm and midnight.</p>
+                </div>
+
+                <div class="builder-field">
+                    <div class="builder-field-label">
+                        <span>Travel distance</span>
+                        <span class="value"><span id="miles-out">10</span> miles</span>
+                    </div>
+                    <input type="range" id="builder-miles" class="builder-slider" min="0" max="50" step="5" value="10">
+                    <p class="builder-hint">First 15 miles free, then 50p per mile.</p>
+                </div>
+
+                <div class="builder-field">
+                    <label class="builder-checkbox">
+                        <input type="checkbox" id="builder-tattoos">
+                        <span>Glitter tattoos</span>
+                        <span class="addon-price">£1 per face</span>
+                    </label>
+                    <label class="builder-checkbox">
+                        <input type="checkbox" id="builder-gems">
+                        <span>Gems & blink</span>
+                        <span class="addon-price">£1.50 per face</span>
+                    </label>
+                    <label class="builder-checkbox">
+                        <input type="checkbox" id="builder-bling">
+                        <span>Bling shop</span>
+                        <button type="button" class="builder-info-btn" onclick="event.preventDefault(); openModal('blinginfo')" aria-label="More about the bling shop">?</button>
+                        <span class="addon-price">No charge</span>
+                    </label>
+                </div>
+
+                <div class="builder-total">
+                    <p class="builder-total-label">Estimated total</p>
+                    <p class="builder-total-value" id="builder-total">£140.00</p>
+                    <button type="button" class="builder-book-btn" onclick="bookNow()">Book Now</button>
+                </div>
+
+                </div>
+
+            </div>
+
+            <div class="builder-image-ticker">
+                <img id="builder-ticker-img" src="images/photo1.jpg" alt="Dazzl face painting work">
+            </div>
+
             </div>
         </div>
     </section>
@@ -81,100 +162,13 @@
     <div id="modalOverlay" class="modal-overlay" onclick="closeModal()"></div>
 
 
-    <!-- Shimmer Modal -->
-    <div id="shimmer-modal" class="modal">
+    <!-- Bling Shop Info Modal -->
+    <div id="blinginfo-modal" class="modal">
         <span class="close-btn" onclick="closeModal()">&times;</span>
         <div class="modal-content">
-            <h2>🌟 Shimmer Package</h2>
-            <h3>Magical, simple and sweet</h3>
-            <p>This one's perfect for little ones or when you just want a gentle touch of magic without overwhelming them. I do lovely face paints and finish with a soft dusting of gold or silver fairy dust – that subtle twinkle kids go crazy for.</p>
-            <p>It's quick, gentle and super fuss-free, great for birthdays, playdates or smaller get-togethers.</p>
-            <div class="pricing">
-                <div class="price-option" onclick="goToContactFromModal()">
-                    <h4>1 hour</h4>
-                    <p class="price">£50</p>
-                    <p>Up to 10 faces</p>
-                </div>
-                <div class="price-option" onclick="goToContactFromModal()">
-                    <h4>2 hours</h4>
-                    <p class="price">£90</p>
-                    <p>Up to 20 faces</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Sparkle Modal -->
-    <div id="sparkle-modal" class="modal">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
-            <h2>✨ Sparkle Package</h2>
-            <h3>Bright, colourful and extra fun</h3>
-            <p>If you fancy a bit more wow but not full-on glam, this is the one! On top of the detailed face painting and fairy dust, you can pick from 24 colours of high quality cosmetic glitter for bold face art, glitter brows or little accents that look amazing in photos.</p>
-            <p>A lovely step up for bigger parties or anyone who's glitter-mad.</p>
-            <div class="pricing">
-                <div class="price-option" onclick="goToContactFromModal()">
-                    <h4>1 hour</h4>
-                    <p class="price">£60</p>
-                    <p>Up to 10 faces</p>
-                </div>
-                <div class="price-option" onclick="goToContactFromModal()">
-                    <h4>2 hours</h4>
-                    <p class="price">£110</p>
-                    <p>Up to 20 faces</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Dazzle Modal -->
-    <div id="dazzle-modal" class="modal">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
-            <h2>💎 Dazzle Package</h2>
-            <h3>The full wow factor</h3>
-            <p>The real head-turner! Everything a sparkle-lover could wish for:</p>
-            <ul>
-                <li>Gorgeous face painting</li>
-                <li>Twinkly fairy dust</li>
-                <li>Chunky glitter in 24 colours</li>
-                <li>Holographic glitter for proper show-stopping shine</li>
-                <li>Skin-safe, cosmetic-grade face gems, with optional glow-in-the-dark gems</li>
-                <li>Glitter tattoos that last through the whole party (and beyond!)</li>
-            </ul>
-            <p>It feels like bringing a festival glitter bar to your event. Absolute favourite for themed birthdays, discos or bigger celebrations.</p>
-            <div class="pricing">
-                <div class="price-option" onclick="goToContactFromModal()">
-                    <h4>1 hour</h4>
-                    <p class="price">£70</p>
-                    <p>Up to 10 faces</p>
-                </div>
-                <div class="price-option" onclick="goToContactFromModal()">
-                    <h4>2 hours</h4>
-                    <p class="price">£130</p>
-                    <p>Up to 20 faces</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Bespoke Modal -->
-    <div id="bespoke-modal" class="modal">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
-            <h2>✨ Bespoke Packages</h2>
-            <h3>Weddings, Christenings, Baby Showers & Special Events</h3>
-            <p>For adults and families who want something a bit different and memorable, I can set up a bespoke glitter bar complete with subtle (or bold!) face & body art.</p>
-            <p>Every event is unique, so I'll chat with you about your theme, colours and vibe – whether that's elegant bridal shimmer, festival fun or a magical evening glow.</p>
-            <div class="pricing">
-                <div class="price-option special" onclick="goToContactFromModal()">
-                    <p class="price">Contact Me</p>
-                </div>
-            </div>
-            <p style="margin-top: 2rem; text-align: center;">I'd love to help make your day extra special for everyone!</p>
+            <h2>✨ Bling Shop</h2>
+            <p>This adds a small shop alongside the face painting where guests can buy items like glow sticks, wristbands, and other extras. Products are purchased individually by guests, on top of the booking cost.</p>
+            <p>This isn't usually suitable for birthday parties, since it turns some guests into customers rather than just guests at the party. Better suited to festivals, fairs, and larger public events.</p>
         </div>
     </div>
 
@@ -228,10 +222,16 @@
     </section>
 
 
+    <div class="section-contact">
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Book Your Event</h2>
+            <h2>Contact</h2>
             <p class="contact-intro">Ready to add some sparkle to your party? Get in touch to discuss your requirements and receive a personalised quote.</p>
+            <div class="contact-note">
+                <p class="contact-intro-text">Want a personalised quote in seconds? Use the Build Your Event tool above to put together your booking, then send it straight to Diana.</p>
+                <a href="#services" class="btn-primary contact-cta">Build Your Event</a>
+                <p class="contact-response">✨ I'll get back to you within 24 hours to confirm your booking! ✨</p>
+            </div>
             <div class="contact-options">
                 <div class="contact-method">
                     <h3><img src="images/Icon-Dazzl-Phone.png" alt="Phone" style="width:60px; height:60px;"></h3>
@@ -246,16 +246,6 @@
                     <p><a href="https://instagram.com/dazzl_faces" target="_blank">@dazzl_faces</a></p>
                 </div>
             </div>
-            <div class="contact-note">
-                <p class="contact-intro-text">To make a booking, please include the following information when you get in touch:</p>
-                <ul class="contact-list">
-                    <li>Event date & location</li>
-                    <li>Expected number of guests</li>
-                    <li>Preferred service tier (Shimmer, Sparkle, or Dazzle)</li>
-                    <li>Any special requests or themes</li>
-                </ul>
-                <p class="contact-response">✨ I'll get back to you within 24 hours with a personalised quote! ✨</p>
-            </div>
         </div>
     </section>
 
@@ -266,6 +256,7 @@
             <p>Fully insured. Cosmetic-grade products. Professional service.</p>
         </div>
     </footer>
+    </div>
 
 
     <script>
@@ -307,51 +298,247 @@
                 closeModal();
             }
         });
-function openModal(packageName) {
-        const modal = document.getElementById(packageName + '-modal');
-        const overlay = document.getElementById('modalOverlay');
-        modal.style.display = 'block';
-        overlay.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-        
-        setTimeout(() => {
-            modal.classList.add('active');
-            overlay.classList.add('active');
-        }, 10);
-    }
 
-    function closeModal() {
-        const modals = document.querySelectorAll('.modal');
-        const overlay = document.getElementById('modalOverlay');
-        
-        modals.forEach(modal => {
-            modal.classList.remove('active');
-        });
-        overlay.classList.remove('active');
-        
-        setTimeout(() => {
-            modals.forEach(modal => {
-                modal.style.display = 'none';
-            });
-            overlay.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }, 300);
-    }
+        // ---- Build Your Event pricing config ----
+        // Edit these values to change pricing anywhere on the site.
+        const pricingConfig = {
+            facesPerHourByService: { facepaint: 15, glitter: 30 },
+            hourlyRateFirstTier: 70,   // per hour for the first 2 hours
+            hourlyRateAfterTier: 65,   // per hour after 2 hours
+            tierBreakpointHours: 2,
+            addonRates: { tattoos: 1, gems: 1.5 },
+            freeMiles: 15,
+            mileRate: 0.5,
+            eveningStart: 18,          // 6pm
+            eveningEnd: 24,            // midnight
+            eveningRate: 10           // surcharge per hour in the evening window
+        };
 
-        // Helper: close modal then scroll to contact
-        function goToContactFromModal() {
-            closeModal();
-            const contactSection = document.getElementById('contact');
-            if (contactSection) {
-                contactSection.scrollIntoView({ behavior: 'smooth' });
-            }
+        let selectedService = 'facepaint';
+
+        function selectService(service) {
+            selectedService = service;
+            document.getElementById('builder-step-1').classList.add('builder-step-hidden');
+            document.getElementById('builder-step-2').classList.remove('builder-step-hidden');
+            updateBuilder();
         }
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModal();
+        function backToStep1() {
+            document.getElementById('builder-step-2').classList.add('builder-step-hidden');
+            document.getElementById('builder-step-1').classList.remove('builder-step-hidden');
+        }
+
+        const trackMin = 8;
+        const trackMax = 24;
+        const minDuration = 1;
+        const maxDuration = 8;
+
+        const startEl = document.getElementById('builder-start');
+        const endEl = document.getElementById('builder-end');
+        const fillEl = document.getElementById('dual-fill');
+
+        function fmtTime(h) {
+            const hh = Math.floor(h);
+            const mm = (h - hh) >= 0.5 ? '30' : '00';
+            return String(hh).padStart(2, '0') + ':' + mm;
+        }
+
+        function hourCost(hours) {
+            const { tierBreakpointHours, hourlyRateFirstTier, hourlyRateAfterTier } = pricingConfig;
+            if (hours <= tierBreakpointHours) return hours * hourlyRateFirstTier;
+            return tierBreakpointHours * hourlyRateFirstTier + (hours - tierBreakpointHours) * hourlyRateAfterTier;
+        }
+
+        function updateDualFill(start, end) {
+            const pctStart = ((start - trackMin) / (trackMax - trackMin)) * 100;
+            const pctEnd = ((end - trackMin) / (trackMax - trackMin)) * 100;
+            fillEl.style.left = pctStart + '%';
+            fillEl.style.width = (pctEnd - pctStart) + '%';
+        }
+
+        function getBuilderState() {
+            let start = +startEl.value;
+            let end = +endEl.value;
+
+            if (end - start < minDuration) {
+                if (document.activeElement === startEl) {
+                    start = end - minDuration;
+                    startEl.value = start;
+                } else {
+                    end = start + minDuration;
+                    endEl.value = end;
+                }
+            } else if (end - start > maxDuration) {
+                if (document.activeElement === startEl) {
+                    start = end - maxDuration;
+                    startEl.value = start;
+                } else {
+                    end = start + maxDuration;
+                    endEl.value = end;
+                }
             }
+
+            const duration = end - start;
+            const faces = duration * pricingConfig.facesPerHourByService[selectedService];
+            const miles = +document.getElementById('builder-miles').value;
+            const tattoos = document.getElementById('builder-tattoos').checked;
+            const gems = document.getElementById('builder-gems').checked;
+            const bling = document.getElementById('builder-bling').checked;
+
+            const eveningOverlap = Math.max(0, Math.min(end, pricingConfig.eveningEnd) - Math.max(start, pricingConfig.eveningStart));
+
+            let total = hourCost(duration) + eveningOverlap * pricingConfig.eveningRate;
+            if (tattoos) total += faces * pricingConfig.addonRates.tattoos;
+            if (gems) total += faces * pricingConfig.addonRates.gems;
+            if (miles > pricingConfig.freeMiles) total += (miles - pricingConfig.freeMiles) * pricingConfig.mileRate;
+
+            return { start, end, duration, faces, miles, tattoos, gems, bling, total };
+        }
+
+        function updateBuilder() {
+            const s = getBuilderState();
+
+            document.getElementById('start-out').textContent = fmtTime(s.start);
+            document.getElementById('end-out').textContent = fmtTime(s.end);
+            document.getElementById('duration-out').textContent = s.duration;
+            document.getElementById('faces-out').textContent = s.faces;
+            document.getElementById('miles-out').textContent = s.miles;
+            document.getElementById('builder-total').textContent = '£' + s.total.toFixed(2);
+
+            updateDualFill(s.start, s.end);
+        }
+
+        function bookNow() {
+            const s = getBuilderState();
+            const serviceLabel = selectedService === 'glitter' ? 'Glitter Bar' : 'Face Painting';
+            const lines = [
+                'Booking enquiry from the Dazzl website',
+                '',
+                'Service: ' + serviceLabel,
+                'Time: ' + fmtTime(s.start) + ' - ' + fmtTime(s.end) + ' (' + s.duration + ' hours)',
+                'Estimated faces: ' + s.faces,
+                'Glitter tattoos: ' + (s.tattoos ? 'Yes' : 'No'),
+                'Gems & blink: ' + (s.gems ? 'Yes' : 'No'),
+                'Bling shop requested: ' + (s.bling ? 'Yes' : 'No'),
+                'Travel distance: ' + s.miles + ' miles',
+                '',
+                'Estimated total: £' + s.total.toFixed(2),
+                '',
+                'Event date & location:',
+                'Expected number of guests:',
+                'Any special requests or themes:'
+            ];
+            const subject = encodeURIComponent('Booking enquiry - Build Your Event');
+            const body = encodeURIComponent(lines.join('\n'));
+            window.location.href = 'mailto:diana@dazzl.uk?subject=' + subject + '&body=' + body;
+        }
+
+        startEl.addEventListener('pointerdown', () => { startEl.style.zIndex = 3; endEl.style.zIndex = 2; });
+        endEl.addEventListener('pointerdown', () => { endEl.style.zIndex = 3; startEl.style.zIndex = 2; });
+
+        ['builder-start', 'builder-end', 'builder-miles', 'builder-tattoos', 'builder-gems', 'builder-bling'].forEach(id => {
+            document.getElementById(id).addEventListener('input', updateBuilder);
         });
+        updateBuilder();
+
+        // ---- Review ticker ----
+        // Real Google review excerpts. Edit this array to change what's shown.
+        const reviewTicker = [
+            { text: "A really lovely experience and such beautiful work!! Plus my gorgeous face paint lasted for ages and looked fab all day.", name: "Jude Allen", url: "https://www.google.com/maps/contrib/107232277747103751761/reviews?hl=en-GB" },
+            { text: "Lovely lady came to do a charity tractor run for us at last minute. Kids loved it.", name: "Anna Towse", url: "https://www.google.com/maps/contrib/118446459546267891461/reviews?hl=en-GB" },
+            { text: "Wow what an amazing and talented lady. She put a smile on everyone's face at my festival themed party and she worked so hard, she never stopped.", name: "Jennifer Good", url: "https://www.google.com/maps/contrib/106996483938370356738/reviews?hl=en-GB" },
+            { text: "Fantastic experience the kids absolutely loved it, such a lovely lady too, would 100% recommend.", name: "Emily Storr", url: "https://www.google.com/maps/contrib/118148353389504866087/reviews?hl=en-GB" },
+            { text: "Diana was amazing with our children at my daughter's birthday party, the quality of her work was amazing and she was really good including all the children.", name: "Megan Milner", url: "https://www.google.com/maps/contrib/111339252051923166325/reviews?hl=en-GB" },
+            { text: "Amazing face painter! Great communication also, would highly recommend.", name: "Lacey Adams", url: "https://www.google.com/maps/contrib/115051350595323035264/reviews?hl=en-GB" },
+            { text: "I highly recommend DazzL! I booked for my daughter's 4th birthday party and was so impressed by the professionalism, standard and service I received.", name: "Caroline Orange", url: "https://www.google.com/maps/contrib/117698548593688061524/reviews?hl=en-GB" }
+        ];
+
+        const tickerOffset = 3;
+        let tickerIndexA = 0;
+        let tickerIndexB = tickerOffset % reviewTicker.length;
+
+        function renderTickerCard(quoteEl, nameEl, index) {
+            const review = reviewTicker[index];
+            quoteEl.textContent = '\u201C' + review.text + '\u201D';
+            nameEl.innerHTML = '<span class="review-stars">\u2605\u2605\u2605\u2605\u2605</span><br><a href="' + review.url + '" target="_blank" rel="noopener">\u2013 ' + review.name + '</a>';
+        }
+
+        function advanceTicker(quoteEl, nameEl, currentIndex) {
+            const wrapper = quoteEl.parentElement;
+            wrapper.style.opacity = '0';
+            setTimeout(() => {
+                renderTickerCard(quoteEl, nameEl, currentIndex);
+                wrapper.style.opacity = '1';
+            }, 400);
+        }
+
+        const tickerAQuote = document.getElementById('ticker-a-quote');
+        const tickerAName = document.getElementById('ticker-a-name');
+        const tickerBQuote = document.getElementById('ticker-b-quote');
+        const tickerBName = document.getElementById('ticker-b-name');
+        const tickerACard = document.getElementById('ticker-a');
+        const tickerBCard = document.getElementById('ticker-b');
+
+        renderTickerCard(tickerAQuote, tickerAName, tickerIndexA);
+        renderTickerCard(tickerBQuote, tickerBName, tickerIndexB);
+
+        let tickerPausedA = false;
+        let tickerPausedB = false;
+
+        tickerACard.addEventListener('mouseenter', () => { tickerPausedA = true; });
+        tickerACard.addEventListener('mouseleave', () => { tickerPausedA = false; });
+        tickerBCard.addEventListener('mouseenter', () => { tickerPausedB = true; });
+        tickerBCard.addEventListener('mouseleave', () => { tickerPausedB = false; });
+
+        setInterval(() => {
+            if (!tickerPausedA) {
+                tickerIndexA = (tickerIndexA + 1) % reviewTicker.length;
+                advanceTicker(tickerAQuote, tickerAName, tickerIndexA);
+            }
+            if (!tickerPausedB) {
+                tickerIndexB = (tickerIndexB + 1) % reviewTicker.length;
+                advanceTicker(tickerBQuote, tickerBName, tickerIndexB);
+            }
+        }, 10000);
+
+        // ---- Builder image ticker (desktop only) ----
+        const builderTickerImages = [
+            'images/photo1.jpg',
+            'images/photo2.jpg',
+            'images/photo3.jpg',
+            'images/photo4.jpg',
+            'images/photo5.jpg',
+            'images/photo6.jpg'
+        ];
+        const builderTickerImg = document.getElementById('builder-ticker-img');
+        let builderTickerIndex = 0;
+
+        if (builderTickerImg) {
+            setInterval(() => {
+                builderTickerIndex = (builderTickerIndex + 1) % builderTickerImages.length;
+                builderTickerImg.style.opacity = '0';
+                setTimeout(() => {
+                    builderTickerImg.src = builderTickerImages[builderTickerIndex];
+                    builderTickerImg.style.opacity = '1';
+                }, 400);
+            }, 4000);
+        }
+
+        // ---- Reset internal scroll position on entering a section ----
+        // Each section has overflow-y:auto as a safety net for tall content.
+        // Without this, a section that once scrolled internally would keep
+        // that offset on later visits, looking like a direction-dependent bug.
+        const snapSections = document.querySelectorAll('.section-hero, .section-contact, #services, #gallery, #about');
+        const scrollResetObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.scrollTop = 0;
+                }
+            });
+        }, { threshold: 0.5 });
+
+        snapSections.forEach(section => scrollResetObserver.observe(section));
+
         // Mobile nav toggle
         const navToggle = document.querySelector('.nav-toggle');
         const navLinks  = document.querySelector('.nav-links');
