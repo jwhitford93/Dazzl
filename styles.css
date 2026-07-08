@@ -20,6 +20,19 @@ body {
 }
 
 
+.page-bg-effect {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-color: #000;
+    background-image:
+        radial-gradient(circle at 20% 30%, rgba(183,68,184,0.25), transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(0,184,212,0.2), transparent 45%),
+        radial-gradient(circle at 60% 80%, rgba(255,107,53,0.18), transparent 50%);
+}
+
+
 :root {
     --header-height: 91px;
 }
@@ -85,6 +98,39 @@ body::after {
     100% {
         background-position: 200% center;
     }
+}
+
+
+.services h2::before,
+.gallery h2::before,
+.about h2::before,
+.contact h2::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(90deg, 
+        #FF6B35 0%,
+        #FF5C8D 10%,
+        #B744B8 20%,
+        #fff 30%,
+        #B744B8 40%,
+        #6C5CE7 50%,
+        #00B8D4 60%,
+        #fff 70%,
+        #00D9A3 80%,
+        #FDD835 90%,
+        #FF6B35 100%);
+    background-size: 400% auto;
+    -webkit-mask-image: url('images/paintstroke.png');
+    mask-image: url('images/paintstroke.png');
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    animation: shimmer 32s linear infinite;
 }
 
 
@@ -358,7 +404,7 @@ nav .container {
 
 /* Reviews strip */
 .reviews-strip {
-    background: #000;
+    background: transparent;
     padding: 2.5rem 0;
 }
 
@@ -485,32 +531,22 @@ nav .container {
 /* Services Section */
 .services {
     padding: 4rem 0 3rem 0;
-    background: #000;
+    background: transparent;
 }
 
 
 .services h2 {
+    z-index: 0;
+    position: relative;
+    display: block;
+    width: fit-content;
+    min-width: 360px;
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 3rem;
+    margin: 0 auto 3rem;
+    padding: 0.75rem 3rem;
     font-weight: 800;
-    background: linear-gradient(90deg, 
-        #FF6B35 0%,
-        #FF5C8D 10%,
-        #B744B8 20%,
-        #fff 30%,
-        #B744B8 40%,
-        #6C5CE7 50%,
-        #00B8D4 60%,
-        #fff 70%,
-        #00D9A3 80%,
-        #FDD835 90%,
-        #FF6B35 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shimmer 18s linear infinite;
+    color: #000;
 }
 
 
@@ -1050,32 +1086,22 @@ nav .container {
 /* Gallery Section */
 .gallery {
     padding: 7rem 0 5rem 0;
-    background: #000;
+    background: transparent;
 }
 
 
 .gallery h2 {
+    z-index: 0;
+    position: relative;
+    display: block;
+    width: fit-content;
+    min-width: 360px;
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 3rem;
+    margin: 0 auto 3rem;
+    padding: 0.75rem 3rem;
     font-weight: 800;
-    background: linear-gradient(90deg, 
-        #FF6B35 0%,
-        #FF5C8D 10%,
-        #B744B8 20%,
-        #fff 30%,
-        #B744B8 40%,
-        #6C5CE7 50%,
-        #00B8D4 60%,
-        #fff 70%,
-        #00D9A3 80%,
-        #FDD835 90%,
-        #FF6B35 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shimmer 18s linear infinite;
+    color: #000;
 }
 
 
@@ -1174,32 +1200,22 @@ nav .container {
 /* About Section */
 .about {
     padding: 7rem 0 5rem 0;
-    background: #0a0a0a;
+    background: transparent;
 }
 
 
 .about h2 {
+    z-index: 0;
+    position: relative;
+    display: block;
+    width: fit-content;
+    min-width: 360px;
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 3rem;
+    margin: 0 auto 3rem;
+    padding: 0.75rem 3rem;
     font-weight: 800;
-    background: linear-gradient(90deg, 
-        #FF6B35 0%,
-        #FF5C8D 10%,
-        #B744B8 20%,
-        #fff 30%,
-        #B744B8 40%,
-        #6C5CE7 50%,
-        #00B8D4 60%,
-        #fff 70%,
-        #00D9A3 80%,
-        #FDD835 90%,
-        #FF6B35 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shimmer 18s linear infinite;
+    color: #000;
 }
 
 
@@ -1238,32 +1254,22 @@ nav .container {
 /* Contact Section */
 .contact {
     padding: 7rem 0 5rem 0;
-    background: #000;
+    background: transparent;
 }
 
 
 .contact h2 {
+    z-index: 0;
+    position: relative;
+    display: block;
+    width: fit-content;
+    min-width: 360px;
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin: 0 auto 1rem;
+    padding: 0.75rem 3rem;
     font-weight: 800;
-    background: linear-gradient(90deg, 
-        #FF6B35 0%,
-        #FF5C8D 10%,
-        #B744B8 20%,
-        #fff 30%,
-        #B744B8 40%,
-        #6C5CE7 50%,
-        #00B8D4 60%,
-        #fff 70%,
-        #00D9A3 80%,
-        #FDD835 90%,
-        #FF6B35 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shimmer 18s linear infinite;
+    color: #000;
 }
 
 
