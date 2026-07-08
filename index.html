@@ -36,7 +36,7 @@
 
 
     <div id="announcement-banner" class="announcement-banner">
-        <p>✨ August almost fully booked — only a few dates left!</p>
+        <p>✨ August almost fully booked — only a few dates left! ✨</p>
         <button type="button" class="announcement-close" onclick="dismissAnnouncement()" aria-label="Dismiss">&times;</button>
     </div>
 
@@ -130,14 +130,14 @@
                     <label class="builder-checkbox">
                         <input type="checkbox" id="builder-tattoos">
                         <span>Glitter tattoos</span>
-                        <span class="addon-price">£1 per face</span>
+                        <span class="addon-price">50p per face</span>
                     </label>
                     <label class="builder-checkbox">
                         <input type="checkbox" id="builder-gems">
-                        <span>Face gems & bling</span>
-                        <span class="addon-price">£1.50 per face</span>
+                        <span>Gems & blink</span>
+                        <span class="addon-price">£1 per face</span>
                     </label>
-                    <label class="builder-checkbox">
+                    <label class="builder-checkbox feature-disabled">
                         <input type="checkbox" id="builder-bling">
                         <span>Bling shop</span>
                         <button type="button" class="builder-info-btn" onclick="event.preventDefault(); openModal('blinginfo')" aria-label="More about the bling shop">?</button>
@@ -169,7 +169,7 @@
 
 
     <!-- Bling Shop Info Modal -->
-    <div id="blinginfo-modal" class="modal">
+    <div id="blinginfo-modal" class="modal feature-disabled">
         <span class="close-btn" onclick="closeModal()">&times;</span>
         <div class="modal-content">
             <h2>✨ Bling Shop</h2>
@@ -179,29 +179,27 @@
     </div>
 
 
+    <!-- Gallery Lightbox -->
+    <div id="gallery-lightbox" class="gallery-lightbox" onclick="closeGalleryLightbox()">
+        <span class="gallery-lightbox-close" onclick="closeGalleryLightbox()">&times;</span>
+        <img id="gallery-lightbox-img" src="" alt="Dazzl face painting work" onclick="event.stopPropagation()">
+    </div>
+
+
 
     <section id="gallery" class="gallery">
         <div class="container">
             <h2>My Work</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/photo1.jpg" alt="Face painting design">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/photo2.jpg" alt="Glitter art design">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/photo3.jpg" alt="Complete Dazzl design">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/photo4.jpg" alt="Party face painting">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/photo5.jpg" alt="Sparkle tattoos">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/photo6.jpg" alt="Event setup">
-                </div>
+            <div class="gallery-grid" id="gallery-mosaic">
+                <div class="gallery-item"><img data-cell="0" src="images/photo1.jpg" alt="Dazzl face painting work"></div>
+                <div class="gallery-item"><img data-cell="1" src="images/photo2.jpg" alt="Dazzl face painting work"></div>
+                <div class="gallery-item"><img data-cell="2" src="images/photo3.jpg" alt="Dazzl face painting work"></div>
+                <div class="gallery-item"><img data-cell="3" src="images/photo4.jpg" alt="Dazzl face painting work"></div>
+                <div class="gallery-item"><img data-cell="4" src="images/photo5.jpg" alt="Dazzl face painting work"></div>
+                <div class="gallery-item"><img data-cell="5" src="images/photo6.jpg" alt="Dazzl face painting work"></div>
+                <div class="gallery-item"><img data-cell="6" src="images/photo7.jpg" alt="Dazzl face painting work"></div>
+                <div class="gallery-item"><img data-cell="7" src="images/photo8.jpg" alt="Dazzl face painting work"></div>
+                <div class="gallery-item"><img data-cell="8" src="images/photo9.jpg" alt="Dazzl face painting work"></div>
             </div>
         </div>
     </section>
@@ -312,7 +310,7 @@
             hourlyRateFirstTier: 70,   // per hour for the first 2 hours
             hourlyRateAfterTier: 65,   // per hour after 2 hours
             tierBreakpointHours: 2,
-            addonRates: { tattoos: 1, gems: 1.5 },
+            addonRates: { tattoos: 0.5, gems: 1 },
             freeMiles: 15,
             mileRate: 0.5,
             eveningStart: 18,          // 6pm
@@ -417,26 +415,35 @@
         function bookNow() {
             const s = getBuilderState();
             const serviceLabel = selectedService === 'glitter' ? 'Glitter Bar' : 'Face Painting';
+            const divider = '<-------------------------------------------------------->';
             const lines = [
-                'Booking enquiry from the Dazzl website',
+                'Booking enquiry',
                 '',
+                'Thank you for choosing Dazzl! To finalise your quote, please could you fill in the details below.',
+                '',
+                'Event date:',
+                'Event location (including postcode):',
+                'Expected number of guests:',
+                'Any special requests or themes:',
+                '',
+                divider,
+                '',
+                'Your selection:',
                 'Service: ' + serviceLabel,
                 'Time: ' + fmtTime(s.start) + ' - ' + fmtTime(s.end) + ' (' + s.duration + ' hours)',
                 'Estimated faces: ' + s.faces,
                 'Glitter tattoos: ' + (s.tattoos ? 'Yes' : 'No'),
                 'Face gems & bling: ' + (s.gems ? 'Yes' : 'No'),
-                'Bling shop requested: ' + (s.bling ? 'Yes' : 'No'),
                 'Travel distance: ' + s.miles + ' miles',
-                '',
                 'Estimated total: £' + s.total.toFixed(2),
                 '',
-                'Event date & location:',
-                'Expected number of guests:',
-                'Any special requests or themes:'
+                'Note: the estimated total is based on the travel distance you selected, your final quote may be adjusted once we confirm your exact event location.',
+                '',
+                divider
             ];
             const subject = encodeURIComponent('Booking enquiry - Build Your Event');
             const body = encodeURIComponent(lines.join('\n'));
-            window.location.href = 'mailto:diana@dazzl.uk?subject=' + subject + '&body=' + body;
+            window.open('mailto:diana@dazzl.uk?subject=' + subject + '&body=' + body, '_blank');
         }
 
         startEl.addEventListener('pointerdown', () => { startEl.style.zIndex = 3; endEl.style.zIndex = 2; });
@@ -506,6 +513,122 @@
                 advanceTicker(tickerBQuote, tickerBName, tickerIndexB);
             }
         }, 10000);
+
+        // ---- Gallery mosaic ticker ----
+        // Full photo pool. Add new filenames here as they're added to /images.
+        const galleryPhotoPool = [];
+        for (let i = 1; i <= 27; i++) {
+            galleryPhotoPool.push('images/photo' + i + '.jpg');
+        }
+
+        function shuffle(arr) {
+            const a = arr.slice();
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        // Grid positions (0-indexed, row-major, 3x3):
+        // 0 1 2
+        // 3 4 5
+        // 6 7 8
+        const cornersCentre = [0, 2, 4, 6, 8];
+        const edges = [1, 3, 5, 7];
+
+        let galleryQueue = shuffle(galleryPhotoPool);
+        let galleryQueueIndex = 0;
+        const galleryGrid = new Array(9).fill(null);
+
+        function nextGalleryPhoto(excludeSet) {
+            let attempts = 0;
+            while (attempts < galleryPhotoPool.length) {
+                if (galleryQueueIndex >= galleryQueue.length) {
+                    galleryQueue = shuffle(galleryPhotoPool);
+                    galleryQueueIndex = 0;
+                }
+                const candidate = galleryQueue[galleryQueueIndex];
+                galleryQueueIndex++;
+                attempts++;
+                if (!excludeSet.has(candidate)) {
+                    return candidate;
+                }
+            }
+            // Fallback if the pool is ever smaller than a group (shouldn't happen with 27 photos)
+            return galleryQueue[(galleryQueueIndex - 1 + galleryQueue.length) % galleryQueue.length];
+        }
+
+        function fillGalleryCell(cellIndex, photo) {
+            galleryGrid[cellIndex] = photo;
+            const img = document.querySelector('#gallery-mosaic img[data-cell="' + cellIndex + '"]');
+            if (img) img.src = photo;
+        }
+
+        // Initial fill: 9 distinct photos, no duplicates on screen
+        [0, 1, 2, 3, 4, 5, 6, 7, 8].forEach(cellIndex => {
+            const exclude = new Set(galleryGrid.filter(Boolean));
+            fillGalleryCell(cellIndex, nextGalleryPhoto(exclude));
+        });
+
+        let refreshCornersCentreNext = true;
+        let galleryTickerId = null;
+
+        function refreshGalleryGroup(indices) {
+            indices.forEach(cellIndex => {
+                const img = document.querySelector('#gallery-mosaic img[data-cell="' + cellIndex + '"]');
+                if (!img) return;
+                img.style.opacity = '0';
+                setTimeout(() => {
+                    const exclude = new Set(galleryGrid.filter((photo, i) => i !== cellIndex));
+                    const next = nextGalleryPhoto(exclude);
+                    fillGalleryCell(cellIndex, next);
+                    img.style.opacity = '1';
+                }, 500);
+            });
+        }
+
+        function galleryTick() {
+            const group = refreshCornersCentreNext ? cornersCentre : edges;
+            refreshGalleryGroup(group);
+            refreshCornersCentreNext = !refreshCornersCentreNext;
+        }
+
+        function startGalleryTicker() {
+            if (!galleryTickerId) galleryTickerId = setInterval(galleryTick, 3500);
+        }
+
+        function stopGalleryTicker() {
+            clearInterval(galleryTickerId);
+            galleryTickerId = null;
+        }
+
+        startGalleryTicker();
+
+        // ---- Gallery lightbox ----
+        const galleryLightbox = document.getElementById('gallery-lightbox');
+        const galleryLightboxImg = document.getElementById('gallery-lightbox-img');
+
+        function openGalleryLightbox(src) {
+            galleryLightboxImg.src = src;
+            galleryLightbox.classList.add('active');
+            stopGalleryTicker();
+        }
+
+        function closeGalleryLightbox() {
+            galleryLightbox.classList.remove('active');
+            startGalleryTicker();
+        }
+
+        document.querySelectorAll('#gallery-mosaic img').forEach(img => {
+            img.addEventListener('click', () => openGalleryLightbox(img.src));
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && galleryLightbox.classList.contains('active')) {
+                closeGalleryLightbox();
+            }
+        });
 
         // ---- Builder image ticker (desktop only) ----
         const builderTickerImages = [

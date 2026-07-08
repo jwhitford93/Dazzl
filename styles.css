@@ -381,6 +381,7 @@ nav .container {
     flex-direction: column;
     justify-content: flex-start;
     transition: opacity 0.4s ease;
+    min-height: 200px;
 }
 
 
@@ -824,6 +825,12 @@ nav .container {
 
 
 /* Add-on checkboxes */
+/* Toggle to display:flex (checkboxes) / block (modals) to re-enable a paused feature */
+.feature-disabled {
+    display: none !important;
+}
+
+
 .builder-checkbox {
     display: flex;
     align-items: center;
@@ -1074,7 +1081,7 @@ nav .container {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
 
@@ -1098,6 +1105,7 @@ nav .container {
     background: linear-gradient(135deg, rgba(255,107,53,0.2), rgba(183,68,184,0.2));
     opacity: 0;
     transition: opacity 0.3s;
+    pointer-events: none;
 }
 
 
@@ -1116,6 +1124,50 @@ nav .container {
     height: 300px;
     object-fit: cover;
     display: block;
+    transition: opacity 0.5s ease;
+    cursor: pointer;
+}
+
+
+.gallery-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+}
+
+
+.gallery-lightbox.active {
+    display: flex;
+}
+
+
+.gallery-lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 15px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    cursor: default;
+}
+
+
+.gallery-lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2.5rem;
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+    line-height: 1;
+}
+
+
+.gallery-lightbox-close:hover {
+    opacity: 0.7;
 }
 
 
@@ -1693,6 +1745,10 @@ footer p {
     .reviews-grid {
         grid-template-columns: 1fr;
     }
+
+    .review-ticker-card {
+        min-height: 230px;
+    }
     
     .logo-image {
         height: 60px;
@@ -1796,5 +1852,3 @@ footer p {
         flex-wrap: wrap;
     }
 }
-
-
