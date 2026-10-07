@@ -5,8 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Dazzl - Professional face painting, glitter art, and sparkle tattoos for parties and events">
     <title>Dazzl - Face Painting & Glitter Art</title>
-    <link rel="icon" type="image/png" href="images/Logo-Dazzl-Mini.png">
+    <link rel="icon" type="image/png" href="images/Logo-Dazzl-Mini.webp">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="shorts.css">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "EntertainmentBusiness",
+            "name": "DazzL - Professional Face Painter and Glitter Artist",
+            "url": "https://dazzl.uk/",
+            "telephone": "+447308304011",
+            "email": "diana@dazzl.uk",
+            "image": "https://dazzl.uk/images/photo4.webp",
+            "description": "Professional face painting and glitter bar services for birthday parties, weddings, festivals, hen dos, baby showers, corporate events and other special occasions in North Yorkshire.",
+            "priceRange": "£70-£250",
+            "areaServed": [
+                { "@type": "City", "name": "Selby" },
+                { "@type": "City", "name": "Tadcaster" },
+                { "@type": "City", "name": "Goole" },
+                { "@type": "City", "name": "York" },
+                { "@type": "City", "name": "Hull" },
+                { "@type": "City", "name": "Doncaster" },
+                { "@type": "AdministrativeArea", "name": "North Yorkshire" }
+            ],
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Selby",
+                "addressRegion": "North Yorkshire",
+                "addressCountry": "GB"
+            },
+            "sameAs": [
+                "https://instagram.com/dazzl_faces",
+                "https://www.facebook.com/profile.php?id=61591763314932"
+            ]
+        }
+    </script>
 </head>
 <body>
     <div class="page-bg-effect" aria-hidden="true"></div>
@@ -14,8 +47,8 @@
         <nav>
             <div class="container">
                 <h1 class="logo">
-                    <a href="#">
-                        <img src="images/Logo-Dazzl-Rainbow.png" alt="Dazzl" class="logo-image">
+                    <a href="index.html">
+                        <img src="images/Logo-Dazzl-Rainbow.webp" alt="Dazzl" class="logo-image">
                     </a>
                 </h1>
 
@@ -27,8 +60,11 @@
                 </button>
 
                 <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="#services">Book Now</a></li>
                     <li><a href="#gallery">Gallery</a></li>
+                    <!--<li><a href="about.html">About</a></li>
+                    <li><a href="aftercare-safety.html">Aftercare &amp; Safety</a></li> -->
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -37,7 +73,7 @@
 
 
     <div id="announcement-banner" class="announcement-banner">
-        <p>✨ August almost fully booked — only a few dates left! ✨</p>
+        <p>✨ Please book well in advance to avoid disappointment! ✨</p>
         <button type="button" class="announcement-close" onclick="dismissAnnouncement()" aria-label="Dismiss">&times;</button>
     </div>
 
@@ -56,7 +92,21 @@
                 </div>
             </div>
             <div class="hero-photo-col">
-                <img src="images/hero.png" alt="" class="hero-photo">
+                <!-- Original photo, commented out for easy revert:
+                <img src="images/hero.webp" alt="" class="hero-photo">
+                -->
+                <!-- Single YouTube embed, commented out for easy revert:
+                <iframe
+                    class="hero-video"
+                    src="https://www.youtube.com/embed/TlcG8_H9WNQ?si=mzuhpeoWegEe1IDz"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+                -->
+                <!-- Shorts strip, built by shorts.js -->
+                <div id="shorts-flow" class="shorts-flow"></div>
             </div>
         </div>
     </section>
@@ -75,7 +125,7 @@
                 </div>
                 <div class="reviews-card">
                     <div class="reviews-stars">★★★★★</div>
-                    <p class="reviews-summary">5.0 from 12 Google reviews</p>
+                    <p class="reviews-summary">5.0 from 19 Google reviews</p>
                     <div class="reviews-links">
                         <a href="https://www.google.com/search?q=DazzL+-+Face+Painter+and+Glitter+Artist+reviews" target="_blank" rel="noopener" class="reviews-btn">Read our reviews</a>
                         <a href="https://www.google.com/search?q=DazzL+-+Face+Painter+and+Glitter+Artist+reviews" target="_blank" rel="noopener" class="reviews-btn reviews-btn-outline">Leave a review</a>
@@ -95,6 +145,8 @@
 
                 <div id="builder-step-1" class="builder-step-1">
                     <p class="builder-step-1-intro">What are you looking for?</p>
+                    <p class="builder-step-1-info">Use this handy tool to pick your service, add  extras, and see transparent pricing in advance.</p>
+                    <br>
                     <div class="builder-service-choice">
                         <button type="button" class="builder-service-card" onclick="selectService('facepaint')">
                             <span class="builder-service-title">Face Painting</span>
@@ -165,7 +217,7 @@
             </div>
 
             <div class="builder-image-ticker">
-                <img id="builder-ticker-img" src="images/photo1.jpg" alt="Dazzl face painting work">
+                <img id="builder-ticker-img" src="images/photo1.webp" alt="Dazzl face painting work">
             </div>
 
             </div>
@@ -200,15 +252,15 @@
         <div class="container">
             <h2>My Work</h2>
             <div class="gallery-grid" id="gallery-mosaic">
-                <div class="gallery-item"><img data-cell="0" src="images/photo1.jpg" alt="Dazzl face painting work"></div>
-                <div class="gallery-item"><img data-cell="1" src="images/photo2.jpg" alt="Dazzl face painting work"></div>
-                <div class="gallery-item"><img data-cell="2" src="images/photo3.jpg" alt="Dazzl face painting work"></div>
-                <div class="gallery-item"><img data-cell="3" src="images/photo4.jpg" alt="Dazzl face painting work"></div>
-                <div class="gallery-item"><img data-cell="4" src="images/photo5.jpg" alt="Dazzl face painting work"></div>
-                <div class="gallery-item"><img data-cell="5" src="images/photo6.jpg" alt="Dazzl face painting work"></div>
-                <div class="gallery-item"><img data-cell="6" src="images/photo7.jpg" alt="Dazzl face painting work"></div>
-                <div class="gallery-item"><img data-cell="7" src="images/photo8.jpg" alt="Dazzl face painting work"></div>
-                <div class="gallery-item"><img data-cell="8" src="images/photo9.jpg" alt="Dazzl face painting work"></div>
+                <div class="gallery-item"><img data-cell="0" src="images/photo1.webp" alt="Dazzl face painting work"></div>
+                <div class="gallery-item"><img data-cell="1" src="images/photo2.webp" alt="Dazzl face painting work"></div>
+                <div class="gallery-item"><img data-cell="2" src="images/photo3.webp" alt="Dazzl face painting work"></div>
+                <div class="gallery-item"><img data-cell="3" src="images/photo4.webp" alt="Dazzl face painting work"></div>
+                <div class="gallery-item"><img data-cell="4" src="images/photo5.webp" alt="Dazzl face painting work"></div>
+                <div class="gallery-item"><img data-cell="5" src="images/photo6.webp" alt="Dazzl face painting work"></div>
+                <div class="gallery-item"><img data-cell="6" src="images/photo7.webp" alt="Dazzl face painting work"></div>
+                <div class="gallery-item"><img data-cell="7" src="images/photo8.webp" alt="Dazzl face painting work"></div>
+                <div class="gallery-item"><img data-cell="8" src="images/photo9.webp" alt="Dazzl face painting work"></div>
             </div>
         </div>
     </section>
@@ -218,6 +270,18 @@
         <div class="container">
             <h2>Why Choose Dazzl?</h2>
             <div class="features">
+                <div class="feature">
+                    <h3>5 Stars on Google</h3>
+                    <p>Rated 5.0 on Google by local parents and event organisers</p>
+                </div>
+                <div class="feature">
+                    <h3>Booked Again and Again</h3>
+                    <p>Families and organisers book me again for their next party or event</p>
+                </div>
+                <div class="feature">
+                    <h3>More Than Face Painting</h3>
+                    <p>I also provide glitter bars, hair braiding, face gems and sparkle tattoos!</p>
+                </div>
                 <div class="feature">
                     <h3>Professional Quality</h3>
                     <p>Using only top-quality cosmetic-grade & hypoallergenic products that are safe for all skin types</p>
@@ -247,16 +311,20 @@
             </div>
             <div class="contact-options">
                 <div class="contact-method">
-                    <h3><img src="images/Icon-Dazzl-Phone.png" alt="Phone" style="width:60px; height:60px;"></h3>
+                    <h3><img src="images/Icon-Dazzl-Phone.webp" alt="Phone" style="width:60px; height:60px;"></h3>
                     <p><a href="tel:+447308304011">07308304011</a></p>
                 </div>
                 <div class="contact-method">
-                    <h3><img src="images/Icon-Dazzl-Mail.png" alt="Mail" style="width:60px; height:60px;"></h3>
+                    <h3><img src="images/Icon-Dazzl-Mail.webp" alt="Mail" style="width:60px; height:60px;"></h3>
                     <p><a href="mailto:diana@dazzl.uk">diana@dazzl.uk</a></p>
                 </div>
                 <div class="contact-method">
-                    <h3><img src="images/Icon-Dazzl-Insta.png" alt="Instagram" style="width:60px; height:60px;"></h3>
+                    <h3><img src="images/Instagram_Glyph_Gradient.webp" alt="Instagram" style="width:60px; height:60px;"></h3>
                     <p><a href="https://instagram.com/dazzl_faces" target="_blank">@dazzl_faces</a></p>
+                </div>
+                <div class="contact-method">
+                    <h3><img src="images/Facebook_Logo_Primary.webp" alt="Facebook" style="width:60px; height:60px;"></h3>
+                    <p><a href="https://www.facebook.com/profile.php?id=61591763314932" target="_blank">Facebook</a></p>
                 </div>
             </div>
         </div>
@@ -265,7 +333,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Dazzl. All rights reserved.</p>
+            <p>&copy; 2026 Dazzl. All rights reserved.</p>
             <p>Full public liability insurance | Cosmetic-grade products | Professional service</p>
             <p>UK & EU Regulation 1223/2009 Compliant | US FDA FD&C Act & MoCRA Compliant</p>
         </div>
@@ -528,7 +596,7 @@
         // Full photo pool. Add new filenames here as they're added to /images.
         const galleryPhotoPool = [];
         for (let i = 1; i <= 27; i++) {
-            galleryPhotoPool.push('images/photo' + i + '.jpg');
+            galleryPhotoPool.push('images/photo' + i + '.webp');
         }
 
         function shuffle(arr) {
@@ -642,12 +710,12 @@
 
         // ---- Builder image ticker (desktop only) ----
         const builderTickerImages = [
-            'images/photo1.jpg',
-            'images/photo2.jpg',
-            'images/photo3.jpg',
-            'images/photo4.jpg',
-            'images/photo5.jpg',
-            'images/photo6.jpg'
+            'images/photo1.webp',
+            'images/photo2.webp',
+            'images/photo3.webp',
+            'images/photo4.webp',
+            'images/photo5.webp',
+            'images/photo6.webp'
         ];
         const builderTickerImg = document.getElementById('builder-ticker-img');
         let builderTickerIndex = 0;
@@ -679,7 +747,7 @@
         snapSections.forEach(section => scrollResetObserver.observe(section));
 
         // ---- Announcement banner ----
-        const announcementKey = 'dazzl-announcement-dismissed-august';
+        const announcementKey = 'dazzl-announcement-dismissed';
         const announcementBanner = document.getElementById('announcement-banner');
 
         if (announcementBanner) {
@@ -710,7 +778,24 @@
                     navLinks.classList.remove('open');
                 }
             });
+
+            // Close menu when clicking anywhere outside it, or pressing Escape
+            const closeNav = () => {
+                navToggle.classList.remove('open');
+                navLinks.classList.remove('open');
+            };
+
+            document.addEventListener('click', (e) => {
+                if (!navLinks.classList.contains('open')) return;
+                if (navLinks.contains(e.target) || navToggle.contains(e.target)) return;
+                closeNav();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeNav();
+            });
         }
     </script>
+    <script src="shorts.js"></script>
 </body>
 </html>

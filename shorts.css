@@ -1,0 +1,127 @@
+/* ================================================================
+   SHORTS STRIP (hero, right-hand column)
+   One Short front and centre, the rest tucked behind on either side.
+   Positions are set by shorts.js; everything visual lives here.
+   ================================================================ */
+
+.shorts-flow {
+    align-self: stretch;
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem 0;
+}
+
+.shorts-stage {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 220px;
+    max-height: 480px;
+    perspective: 1200px;
+    touch-action: pan-y;
+}
+
+.shorts-card {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    aspect-ratio: 9 / 16;
+    padding: 0;
+    border: 1px solid #333;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #1a1a1a;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255,107,53,0.3);
+    transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease, box-shadow 0.5s ease;
+    will-change: transform;
+}
+
+.shorts-card.is-active {
+    box-shadow: 0 8px 35px rgba(255,92,141,0.45);
+}
+
+.shorts-card:focus-visible {
+    outline: 2px solid #FF5C8D;
+    outline-offset: 3px;
+}
+
+.shorts-card img,
+.shorts-card iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+.shorts-card img {
+    object-fit: cover;
+}
+
+/* Play button, centre card only */
+.shorts-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 64px;
+    height: 64px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF6B35, #FF5C8D, #B744B8);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.shorts-play::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 11px 0 11px 18px;
+    border-color: transparent transparent transparent #fff;
+}
+
+.shorts-card.is-active .shorts-play {
+    opacity: 1;
+}
+
+.shorts-card.is-active:hover .shorts-play {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.shorts-card.is-playing .shorts-play {
+    display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .shorts-card,
+    .shorts-play {
+        transition: none;
+    }
+}
+
+
+/* Let the glow spill past the hero's edges */
+.hero {
+    overflow: visible;
+    clip-path: none;
+    -webkit-clip-path: none;
+}
+
+.hero-photo-col {
+    overflow: visible;
+}
+
+.section-hero {
+    overflow-x: hidden;
+}

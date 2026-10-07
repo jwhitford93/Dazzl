@@ -77,39 +77,6 @@ html {
 }
 
 
-/* ---------- Shared: Section Header Paint-Stroke (Services / Gallery / About / Contact) ---------- */
-
-.services h2::before,
-.gallery h2::before,
-.about h2::before,
-.contact h2::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: linear-gradient(90deg, 
-        #FF6B35 0%,
-        #FF5C8D 10%,
-        #B744B8 20%,
-        #B744B8 40%,
-        #6C5CE7 50%,
-        #00B8D4 60%,
-        #00D9A3 80%,
-        #FDD835 90%,
-        #FF6B35 100%);
-    background-size: 400% auto;
-    -webkit-mask-image: url('images/paintstroke.png');
-    mask-image: url('images/paintstroke.png');
-    -webkit-mask-size: 100% auto;
-    mask-size: 100% auto;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
-    animation: shimmer 32s linear infinite;
-}
-
-
 /* ---------- Header & Navigation ---------- */
 
 .announcement-banner {
@@ -201,13 +168,14 @@ nav .container {
     width: auto;
 }
 
-/* Hamburger button (base styles, shown in mobile via media query) */
+/* Hamburger button (always shown, all screen sizes) */
 .nav-toggle {
-    display: none;            /* default: hidden on desktop */
+    display: block;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
+    z-index: 101;
 }
 
 .nav-toggle-bar {
@@ -215,7 +183,7 @@ nav .container {
     width: 24px;
     height: 3px;
     margin: 4px 0;
-    background: #fff;
+    background: linear-gradient(90deg, #FF6B35, #FF5C8D, #B744B8);
     border-radius: 2px;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -231,10 +199,53 @@ nav .container {
     transform: translateY(-7px) rotate(-45deg);
 }
 
+/* Nav-links: dropdown, hidden until toggled open (always, all screen sizes) */
 .nav-links {
-    display: flex;
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    left: 0;
+    background: linear-gradient(90deg, 
+        #FF6B35 0%,
+        #FF5C8D 14%,
+        #B744B8 28%,
+        #6C5CE7 42%,
+        #00B8D4 56%,
+        #00D9A3 70%,
+        #FDD835 84%,
+        #FF6B35 100%);
     list-style: none;
-    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 0 2rem 0;
+    display: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    overflow: hidden;
+}
+
+.nav-links::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    background: #000;
+    z-index: 0;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+}
+
+.nav-links li {
+    position: relative;
+    z-index: 1;
+}
+
+.nav-links.open {
+    display: flex;
 }
 
 .nav-links a {
@@ -291,7 +302,7 @@ nav .container {
     z-index: 0;
     width: 100%;
     box-sizing: border-box;
-    padding: 3rem 3rem;
+    padding: 3rem 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -301,34 +312,6 @@ nav .container {
 
 .hero-content {
     width: 100%;
-}
-
-.hero-heading::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: linear-gradient(90deg,
-        #FF6B35 0%,
-        #FF5C8D 10%,
-        #B744B8 20%,
-        #B744B8 40%,
-        #6C5CE7 50%,
-        #00B8D4 60%,
-        #00D9A3 80%,
-        #FDD835 90%,
-        #FF6B35 100%);
-    background-size: 400% auto;
-    -webkit-mask-image: url('images/paintstroke2.png');
-    mask-image: url('images/paintstroke2.png');
-    -webkit-mask-size: auto 80%;
-    mask-size: auto 80%;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
-    animation: shimmer 32s linear infinite;
-    
 }
 
 .hero-content .hero-line-small {
@@ -347,7 +330,7 @@ nav .container {
     color: #fff;
     margin: 0;
     line-height: 1;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    filter: drop-shadow(0 0 6px rgba(0,0,0,0.5));
  
 }
 
@@ -379,6 +362,17 @@ nav .container {
     width: auto;
     height: auto;
     object-fit: contain;
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+.hero-video {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    aspect-ratio: 16 / 9;
+    border: none;
     -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
 }
@@ -534,7 +528,7 @@ nav .container {
     padding: 0.75rem 3rem;
     font-weight: 800;
     color: #fff;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    filter: drop-shadow(0 0 6px rgba(0,0,0,0.5));
 }
 
 .service-grid {
@@ -899,6 +893,12 @@ nav .container {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
 }
+.builder-step-1-info {
+    color: #ccc;
+    font-size: 0.85rem;
+    text-align: center;
+    margin-top: 1.25rem;
+}
 
 .builder-step-1-disclaimer {
     color: #999;
@@ -1034,7 +1034,7 @@ nav .container {
     padding: 0.75rem 3rem;
     font-weight: 800;
     color: #fff;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    filter: drop-shadow(0 0 6px rgba(0,0,0,0.5));
 }
 
 .gallery-grid {
@@ -1138,7 +1138,7 @@ nav .container {
     padding: 0.75rem 3rem;
     font-weight: 800;
     color: #fff;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    filter: drop-shadow(0 0 6px rgba(0,0,0,0.5));
 }
 
 .features {
@@ -1189,7 +1189,7 @@ nav .container {
     padding: 0.75rem 3rem;
     font-weight: 800;
     color: #fff;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    filter: drop-shadow(0 0 6px rgba(0,0,0,0.5));
 }
 
 .contact-intro {
@@ -1303,6 +1303,33 @@ footer p {
     margin: 0.5rem 0;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     font-weight: 500;
+}
+
+
+/* ---------- Shared: Animated gradient heading text ---------- */
+/* Must stay below the individual h2 / hero rules so it overrides their colour and text-shadow. */
+
+.services h2,
+.gallery h2,
+.about h2,
+.contact h2,
+.hero-content .hero-line-large {
+    background: linear-gradient(90deg,
+        #FF6B35 0%,
+        #FF5C8D 10%,
+        #B744B8 20%,
+        #B744B8 40%,
+        #6C5CE7 50%,
+        #00B8D4 60%,
+        #00D9A3 80%,
+        #FDD835 90%,
+        #FF6B35 100%);
+    background-size: 400% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    animation: shimmer 32s linear infinite;
 }
 
 
@@ -1519,6 +1546,29 @@ footer p {
         overflow-y: auto;
     }
 
+    .section-hero .hero {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-flex {
+        height: 100%;
+    }
+
+    .hero-text-col {
+        height: 100%;
+    }
+
+    .hero-content {
+        height: 100%;
+    }
+
+    .hero-heading {
+        height: 100%;
+    }
+
 
     /* ---------- Contact ---------- */
 
@@ -1618,6 +1668,7 @@ footer p {
     /* ---------- About ---------- */
 
     .about .features {
+        grid-template-columns: repeat(3, 1fr);
         gap: 1.25rem;
     }
 
@@ -1638,25 +1689,32 @@ footer p {
     .hero-flex {
         display: flex;
         align-items: stretch;
-        height: 70vh;
+        height: 100%;
     }
 
     .hero-text-col {
         flex: 1 1 63%;
         display: flex;
-        align-items: center;
+        align-items: stretch;
     }
 
     .hero-photo-col {
-        flex: 1 1 37%;
+        flex: 1 1 55%;
+        min-width: 0;
         display: flex;
-        align-items: flex-end;
+        align-items: center;
         justify-content: center;
         overflow: hidden;
+        padding-right: 3rem;
     }
 
     .hero-heading {
-        padding: 5rem 4rem;
+        height: 100%;
+        padding: 3rem 25%;
+    }
+
+    .hero-content {
+        height: 100%;
     }
 
     .hero-content .hero-line-small {
@@ -1686,28 +1744,7 @@ footer p {
     }
 
     /* Show hamburger and turn nav-links into dropdown */
-    .nav-toggle {
-        display: block;
-        z-index: 101;
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        left: 0;
-        background: #000;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-        padding: 1.5rem 0 2rem 0;
-        display: none;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-    }
-
-    .nav-links.open {
-        display: flex;
-    }
+    /* (nav-toggle / nav-links now handled by base styles above — hamburger is permanent) */
 
     .nav-links a {
         font-size: 1rem;
@@ -1738,13 +1775,6 @@ footer p {
 
     .hero-heading {
        padding: 3rem 4rem 4rem;
-    }
-
-    .hero-heading::before {
-        -webkit-mask-image: url('images/paintstroke3.png');
-        mask-image: url('images/paintstroke3.png');
-        -webkit-mask-size: 100% 110%;
-        mask-size: 100% 110%;
     }
 
 
